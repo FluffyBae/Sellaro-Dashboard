@@ -81,6 +81,12 @@ body {
 .logo-img {
     height: 40px;
     width: auto;
+    transition: var(--transition);
+}
+
+/* Logo adjustments for dark theme */
+.dark-theme .logo-img {
+    filter: brightness(1.1) contrast(1.1);
 }
 
 .header-controls {
