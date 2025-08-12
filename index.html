@@ -233,6 +233,48 @@
         </div>
     </footer>
 
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <!-- Chat Button -->
+        <button class="chat-button" id="chatButton">
+            <i data-feather="message-circle" class="chat-icon"></i>
+            <i data-feather="x" class="close-icon"></i>
+        </button>
+        
+        <!-- Chat Bubble -->
+        <div class="chat-bubble" id="chatBubble">
+            <div class="chat-header">
+                <h4 data-key="chat-title">Chat dengan AI Assistant</h4>
+                <p data-key="chat-subtitle">Tanya tentang layanan kami</p>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <i data-feather="cpu"></i>
+                    </div>
+                    <div class="message-content">
+                        <p data-key="bot-greeting">Halo! 👋 Saya AI Assistant Sellaro. Bagaimana saya bisa membantu Anda hari ini?</p>
+                        <span class="message-time">Just now</span>
+                    </div>
+                </div>
+                
+                <div class="quick-replies">
+                    <button class="quick-reply" data-key="quick-services">Layanan apa saja yang tersedia?</button>
+                    <button class="quick-reply" data-key="quick-pricing">Berapa harga layanannya?</button>
+                    <button class="quick-reply" data-key="quick-contact">Cara menghubungi tim?</button>
+                </div>
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" placeholder="Ketik pesan Anda..." data-key="chat-placeholder" id="chatInput">
+                <button type="button" id="sendButton">
+                    <i data-feather="send"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="scripts/main.js"></script>
 </body>
 </html>

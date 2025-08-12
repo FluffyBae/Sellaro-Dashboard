@@ -35,7 +35,14 @@ const translations = {
         'nav-clients': 'Klien',
         'nav-why': 'Tentang Kami',
         'nav-services': 'Layanan',
-        'nav-contact': 'Kontak'
+        'nav-contact': 'Kontak',
+        'chat-title': 'Chat dengan AI Assistant',
+        'chat-subtitle': 'Tanya tentang layanan kami',
+        'bot-greeting': 'Halo! 👋 Saya AI Assistant Sellaro. Bagaimana saya bisa membantu Anda hari ini?',
+        'chat-placeholder': 'Ketik pesan Anda...',
+        'quick-services': 'Layanan apa saja yang tersedia?',
+        'quick-pricing': 'Berapa harga layanannya?',
+        'quick-contact': 'Cara menghubungi tim?'
     },
     en: {
         'hero-title': 'Boost Your Shopee Sales, Effortlessly',
@@ -72,12 +79,35 @@ const translations = {
         'nav-clients': 'Clients',
         'nav-why': 'About Us',
         'nav-services': 'Services',
-        'nav-contact': 'Contact'
+        'nav-contact': 'Contact',
+        'chat-title': 'Chat with AI Assistant',
+        'chat-subtitle': 'Ask about our services',
+        'bot-greeting': 'Hello! 👋 I\'m Sellaro AI Assistant. How can I help you today?',
+        'chat-placeholder': 'Type your message...',
+        'quick-services': 'What services do you offer?',
+        'quick-pricing': 'What are your pricing rates?',
+        'quick-contact': 'How to contact your team?'
     }
 };
 
 // Current language
 let currentLang = 'id';
+
+// Chat widget responses database
+const chatResponses = {
+    id: {
+        services: "Kami menyediakan 6 layanan utama:\n\n🔍 Analisis Tampilan Toko\n🎨 Re-Design Toko\n✍️ Copywriting\n📷 Foto Product\n🎯 Rekomendasi Iklan\n📱 Optimasi UX Toko\n\nLayanan mana yang paling Anda butuhkan?",
+        pricing: "Harga layanan kami bervariasi tergantung kebutuhan:\n\n• Paket Basic: Rp 2.500.000 (1-2 layanan)\n• Paket Premium: Rp 4.500.000 (3-4 layanan)\n• Paket Complete: Rp 7.500.000 (semua layanan)\n\nHubungi kami untuk konsultasi gratis! 📞",
+        contact: "Anda bisa menghubungi tim kami melalui:\n\n📧 Email: contact@diserbu.id\n📱 WhatsApp: +62 812-3456-7890\n⏰ Jam kerja: Senin-Jumat 09:00-17:00\n\nAtau klik tombol 'Mulai Sekarang' di halaman ini untuk konsultasi langsung!",
+        default: "Terima kasih atas pertanyaannya! Untuk informasi lebih detail, silakan hubungi tim support kami di contact@diserbu.id atau gunakan tombol quick reply di bawah untuk pertanyaan umum. 😊"
+    },
+    en: {
+        services: "We provide 6 main services:\n\n🔍 Store Display Analysis\n🎨 Store Re-Design\n✍️ Copywriting\n📷 Product Photography\n🎯 Advertising Recommendations\n📱 Store UX Optimization\n\nWhich service do you need most?",
+        pricing: "Our service pricing varies based on needs:\n\n• Basic Package: $170 (1-2 services)\n• Premium Package: $305 (3-4 services)\n• Complete Package: $510 (all services)\n\nContact us for a free consultation! 📞",
+        contact: "You can contact our team via:\n\n📧 Email: contact@diserbu.id\n📱 WhatsApp: +62 812-3456-7890\n⏰ Business hours: Monday-Friday 09:00-17:00\n\nOr click the 'Get Started' button on this page for direct consultation!",
+        default: "Thank you for your question! For more detailed information, please contact our support team at contact@diserbu.id or use the quick reply buttons below for common questions. 😊"
+    }
+};
 
 // DOM Elements
 const themeToggle = document.getElementById('themeToggle');
@@ -86,6 +116,13 @@ const body = document.body;
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileNav = document.getElementById('mobileNav');
 const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+const chatWidget = document.getElementById('chatWidget');
+const chatButton = document.getElementById('chatButton');
+const chatBubble = document.getElementById('chatBubble');
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const sendButton = document.getElementById('sendButton');
+const quickReplies = document.querySelectorAll('.quick-reply');
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', function() {
@@ -112,6 +149,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Setup navigation
     setupNavigation();
+    
+    // Setup chat widget
+    setupChatWidget();
 });
 
 // Setup event listeners
@@ -388,4 +428,158 @@ function setupNavigation() {
             toggleMobileMenu();
         }
     });
+}
+
+// Setup chat widget functionality
+function setupChatWidget() {
+    if (!chatButton || !chatWidget) return;
+    
+    // Chat toggle
+    chatButton.addEventListener('click', toggleChat);
+    
+    // Send message functionality
+    if (sendButton && chatInput) {
+        sendButton.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    }
+    
+    // Quick reply buttons
+    quickReplies.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const message = e.target.textContent;
+            sendUserMessage(message);
+            
+            // Generate bot response based on button content
+            setTimeout(() => {
+                let response;
+                if (message.includes('layanan') || message.includes('services')) {
+                    response = chatResponses[currentLang].services;
+                } else if (message.includes('harga') || message.includes('pricing')) {
+                    response = chatResponses[currentLang].pricing;
+                } else if (message.includes('hubungi') || message.includes('contact')) {
+                    response = chatResponses[currentLang].contact;
+                } else {
+                    response = chatResponses[currentLang].default;
+                }
+                sendBotMessage(response);
+            }, 800);
+            
+            // Hide quick replies after use
+            e.target.parentElement.style.display = 'none';
+        });
+    });
+    
+    // Close chat when clicking outside
+    document.addEventListener('click', (e) => {
+        if (chatWidget.classList.contains('open') && 
+            !chatWidget.contains(e.target)) {
+            toggleChat();
+        }
+    });
+}
+
+// Toggle chat widget
+function toggleChat() {
+    chatWidget.classList.toggle('open');
+    
+    // Re-initialize Feather icons after toggle
+    setTimeout(() => feather.replace(), 100);
+}
+
+// Send user message
+function sendUserMessage(message) {
+    if (!message.trim()) return;
+    
+    const messageElement = createMessageElement(message, 'user');
+    chatMessages.appendChild(messageElement);
+    scrollToBottom();
+    
+    if (chatInput) {
+        chatInput.value = '';
+    }
+}
+
+// Send bot message
+function sendBotMessage(message) {
+    const messageElement = createMessageElement(message, 'bot');
+    chatMessages.appendChild(messageElement);
+    scrollToBottom();
+}
+
+// Create message element
+function createMessageElement(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}-message`;
+    
+    const avatar = document.createElement('div');
+    avatar.className = 'message-avatar';
+    avatar.innerHTML = sender === 'bot' ? '<i data-feather="cpu"></i>' : '<i data-feather="user"></i>';
+    
+    const content = document.createElement('div');
+    content.className = 'message-content';
+    
+    const textP = document.createElement('p');
+    textP.textContent = text;
+    
+    const time = document.createElement('span');
+    time.className = 'message-time';
+    time.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    
+    content.appendChild(textP);
+    content.appendChild(time);
+    messageDiv.appendChild(avatar);
+    messageDiv.appendChild(content);
+    
+    // Re-initialize feather icons for new message
+    setTimeout(() => feather.replace(), 50);
+    
+    return messageDiv;
+}
+
+// Send message function
+function sendMessage() {
+    if (!chatInput) return;
+    
+    const message = chatInput.value.trim();
+    if (!message) return;
+    
+    sendUserMessage(message);
+    
+    // Simulate bot response
+    setTimeout(() => {
+        const response = generateBotResponse(message.toLowerCase());
+        sendBotMessage(response);
+    }, 1000);
+}
+
+// Generate bot response based on keywords
+function generateBotResponse(message) {
+    if (message.includes('layanan') || message.includes('service')) {
+        return chatResponses[currentLang].services;
+    } else if (message.includes('harga') || message.includes('price') || message.includes('biaya')) {
+        return chatResponses[currentLang].pricing;
+    } else if (message.includes('kontak') || message.includes('contact') || message.includes('hubungi')) {
+        return chatResponses[currentLang].contact;
+    } else if (message.includes('halo') || message.includes('hello') || message.includes('hai')) {
+        return currentLang === 'id' ? 
+            "Halo! Senang bertemu dengan Anda. Ada yang bisa saya bantu tentang layanan Sellaro hari ini? 😊" :
+            "Hello! Nice to meet you. Is there anything I can help you with about Sellaro services today? 😊";
+    } else if (message.includes('terima kasih') || message.includes('thank')) {
+        return currentLang === 'id' ? 
+            "Sama-sama! Jika ada pertanyaan lain, jangan ragu untuk bertanya. Tim kami siap membantu! 🙌" :
+            "You're welcome! If you have any other questions, don't hesitate to ask. Our team is ready to help! 🙌";
+    } else {
+        return chatResponses[currentLang].default;
+    }
+}
+
+// Scroll chat to bottom
+function scrollToBottom() {
+    if (chatMessages) {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
 }
