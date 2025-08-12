@@ -85,9 +85,9 @@ body {
     transition: var(--transition);
 }
 
-/* Logo adjustments for dark theme */
-.dark-theme .logo-img {
-    filter: brightness(1.1) contrast(1.1);
+/* Logo adjustments for different themes */
+.logo-img {
+    transition: var(--transition);
 }
 
 /* Navigation Styles */
@@ -365,12 +365,7 @@ body {
     max-height: 80px;
     width: auto;
     height: auto;
-    filter: grayscale(100%);
     transition: var(--transition);
-}
-
-.client-logo:hover img {
-    filter: grayscale(0%);
 }
 
 .client-logo:hover {

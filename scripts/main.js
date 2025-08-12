@@ -134,6 +134,9 @@ document.addEventListener('DOMContentLoaded', function() {
     body.classList.remove('light-theme', 'dark-theme');
     body.classList.add(`${savedTheme}-theme`);
     
+    // Update logo based on initial theme
+    updateLogo();
+    
     // Set initial language from localStorage or default to Indonesian
     const savedLang = localStorage.getItem('language') || 'id';
     switchLanguage(savedLang);
@@ -214,11 +217,23 @@ function toggleTheme() {
     body.classList.remove('light-theme', 'dark-theme');
     body.classList.add(isLight ? 'dark-theme' : 'light-theme');
     
+    // Update logo based on theme
+    updateLogo();
+    
     // Save to localStorage
     localStorage.setItem('theme', isLight ? 'dark' : 'light');
     
     // Re-initialize Feather icons after theme change
     feather.replace();
+}
+
+// Update logo based on current theme
+function updateLogo() {
+    const logoImg = document.querySelector('.logo-img');
+    if (logoImg) {
+        const isDark = body.classList.contains('dark-theme');
+        logoImg.src = isDark ? 'assets/logo-dark.png' : 'assets/logo.png';
+    }
 }
 
 // Language switching function
