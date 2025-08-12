@@ -1,0 +1,109 @@
+Create a fully responsive, single-page landing website for Sellaro.id, following an elegant and tech-inspired visual style, with subtle but smooth animations. The website must include language switcher (EN/ID) in the header (translating all page text, not just UI labels) and a dark/light theme toggle that works instantly without reloading the page.
+
+Brand Assets & Layout:
+
+Logo: Use the provided logo image (last attached photo).
+
+Inspiration: Follow the aesthetic direction from the first 5 attached "web ideas" images.
+
+Our Clients section images: Use the 4 provided client images (just before the logo in the attachments).
+
+Other images: Use elegant AI/tech-style placeholder images matching the section context.
+
+Sections:
+
+Header — Sticky to top on scroll, contains:
+
+Logo (left)
+
+EN/ID language toggle (center or right)
+
+Theme switcher toggle (dark/light mode)
+
+Hero Section
+
+Headline: "Boost Your Shopee Sales, Effortlessly"
+
+Subheadline: "Sell More, Stress Less"
+
+Supporting image + hero image side by side (responsive stack on mobile).
+
+Our Clients
+
+Display the 4 provided client images in a grid + text "and 120+ more".
+
+Why Choose Us?
+
+5 columns (responsive to 1 or 2 columns on mobile).
+
+Icons and text:
+
+Strategi AI yang Cerdas
+
+Keputusan Berbasis Data
+
+Solusi yang Disesuaikan
+
+Layanan Menyeluruh
+
+Hasil yang Terbukti
+
+Our Services (grid layout, responsive)
+
+Analisis Tampilan Toko — description as given
+
+Re-Design Toko — description as given
+
+Copywriting — description as given
+
+Foto Product — description as given
+
+Rekomendasi Iklan — description as given
+
+Optimasi UX Toko — description as given
+
+Footer —
+
+"Sellaro"
+
+"contact@diserbu.id"
+
+Design Requirements:
+
+Fonts:
+
+Heading: Space Grotesk (SemiBold) via Google Fonts
+
+Body: Manrope (Regular) via Google Fonts
+
+Colors:
+
+Primary: #0480FE
+
+Secondary: #0BC4EE
+
+Dark Background: #0B0F1A
+
+Light Background: #F7F9FC
+
+Dark Mode Text: #FFFFFF
+
+Light Mode Text: #1A1A1A
+
+Add smooth hover animations and fade-in scroll effects for elegance.
+
+Fully responsive for mobile, tablet, and desktop.
+
+Technical Notes:
+
+Use pure HTML, CSS, and JavaScript (no heavy frameworks).
+
+Use CSS variables for theme colors so dark/light mode works by toggling classes.
+
+Include SEO meta tags and Open Graph tags for better sharing.
+
+Translate all content to English for EN toggle.
+
+Organize CSS and JS in separate files for maintainability.
+
+Output the complete project with all HTML, CSS, and JavaScript files so it can be run instantly on Replit without extra setup.
