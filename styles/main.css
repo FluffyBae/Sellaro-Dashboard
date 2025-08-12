@@ -373,6 +373,17 @@ body {
     box-shadow: 0 10px 25px var(--shadow);
 }
 
+/* Dark theme specific styling for client logos */
+.dark-theme .client-logo {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-theme .client-logo:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: translateY(-5px);
+}
+
 .clients-more {
     text-align: center;
     font-size: 1.1rem;
