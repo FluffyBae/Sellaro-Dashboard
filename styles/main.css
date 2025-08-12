@@ -76,6 +76,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
+    gap: 40px;
 }
 
 .logo-img {
@@ -87,6 +88,100 @@ body {
 /* Logo adjustments for dark theme */
 .dark-theme .logo-img {
     filter: brightness(1.1) contrast(1.1);
+}
+
+/* Navigation Styles */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+    background-color: var(--border-color);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    background-color: var(--border-color);
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 20px 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-weight: 500;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.mobile-nav-link:hover {
+    color: var(--primary-color);
+    background-color: var(--border-color);
+}
+
+.mobile-nav-link:last-child {
+    border-bottom: none;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.mobile-menu-btn:hover {
+    background-color: var(--border-color);
+}
+
+.mobile-menu-btn i {
+    width: 24px;
+    height: 24px;
 }
 
 .header-controls {
@@ -485,10 +580,24 @@ body {
     
     .header-content {
         padding: 10px 0;
+        gap: 20px;
     }
     
     .header-controls {
         gap: 15px;
+    }
+    
+    /* Hide desktop nav and show mobile menu button */
+    .nav {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .mobile-nav {
+        display: flex;
     }
     
     .hero {

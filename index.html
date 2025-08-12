@@ -35,6 +35,15 @@
                     <img src="assets/logo.png" alt="Sellaro.id" class="logo-img">
                 </div>
                 
+                <!-- Navigation -->
+                <nav class="nav">
+                    <a href="#hero" class="nav-link" data-key="nav-home">Home</a>
+                    <a href="#clients" class="nav-link" data-key="nav-clients">Klien</a>
+                    <a href="#why-choose" class="nav-link" data-key="nav-why">Tentang Kami</a>
+                    <a href="#services" class="nav-link" data-key="nav-services">Layanan</a>
+                    <a href="#footer" class="nav-link" data-key="nav-contact">Kontak</a>
+                </nav>
+                
                 <div class="header-controls">
                     <!-- Language Toggle -->
                     <div class="language-toggle">
@@ -47,7 +56,22 @@
                         <i data-feather="sun" class="theme-icon light-icon"></i>
                         <i data-feather="moon" class="theme-icon dark-icon"></i>
                     </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i data-feather="menu"></i>
+                    </button>
                 </div>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" id="mobileNav">
+                <a href="#hero" class="mobile-nav-link" data-key="nav-home">Home</a>
+                <a href="#clients" class="mobile-nav-link" data-key="nav-clients">Klien</a>
+                <a href="#why-choose" class="mobile-nav-link" data-key="nav-why">Tentang Kami</a>
+                <a href="#services" class="mobile-nav-link" data-key="nav-services">Layanan</a>
+                <a href="#footer" class="mobile-nav-link" data-key="nav-contact">Kontak</a>
+            </nav>
             </div>
         </div>
     </header>
@@ -198,7 +222,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">

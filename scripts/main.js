@@ -30,7 +30,12 @@ const translations = {
         'service5-title': 'Rekomendasi Iklan',
         'service5-desc': 'Strategi periklanan yang efektif dan tepat sasaran untuk memaksimalkan ROI iklan Shopee Anda dengan budget yang optimal.',
         'service6-title': 'Optimasi UX Toko',
-        'service6-desc': 'Optimasi user experience toko untuk memastikan navigasi yang mudah, loading yang cepat, dan proses pembelian yang lancar.'
+        'service6-desc': 'Optimasi user experience toko untuk memastikan navigasi yang mudah, loading yang cepat, dan proses pembelian yang lancar.',
+        'nav-home': 'Home',
+        'nav-clients': 'Klien',
+        'nav-why': 'Tentang Kami',
+        'nav-services': 'Layanan',
+        'nav-contact': 'Kontak'
     },
     en: {
         'hero-title': 'Boost Your Shopee Sales, Effortlessly',
@@ -62,7 +67,12 @@ const translations = {
         'service5-title': 'Advertising Recommendations',
         'service5-desc': 'Effective and targeted advertising strategies to maximize your Shopee ad ROI with optimal budget.',
         'service6-title': 'Store UX Optimization',
-        'service6-desc': 'Store user experience optimization to ensure easy navigation, fast loading, and smooth purchasing process.'
+        'service6-desc': 'Store user experience optimization to ensure easy navigation, fast loading, and smooth purchasing process.',
+        'nav-home': 'Home',
+        'nav-clients': 'Clients',
+        'nav-why': 'About Us',
+        'nav-services': 'Services',
+        'nav-contact': 'Contact'
     }
 };
 
@@ -73,6 +83,9 @@ let currentLang = 'id';
 const themeToggle = document.getElementById('themeToggle');
 const langButtons = document.querySelectorAll('.lang-btn');
 const body = document.body;
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileNav = document.getElementById('mobileNav');
+const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', function() {
@@ -96,6 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Setup sticky header
     setupStickyHeader();
+    
+    // Setup navigation
+    setupNavigation();
 });
 
 // Setup event listeners
@@ -121,6 +137,34 @@ function setupEventListeners() {
             });
         });
     }
+    
+    // Mobile menu toggle
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    }
+    
+    // Navigation link clicks
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Close mobile menu if open
+                if (mobileNav.classList.contains('open')) {
+                    toggleMobileMenu();
+                }
+                
+                // Smooth scroll to target
+                const offsetTop = targetElement.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 }
 
 // Theme toggle function
@@ -279,3 +323,69 @@ window.addEventListener('load', () => {
         });
     }, 300);
 });
+
+// Mobile menu toggle function
+function toggleMobileMenu() {
+    if (mobileNav) {
+        mobileNav.classList.toggle('open');
+        
+        // Update mobile menu button icon
+        const icon = mobileMenuBtn.querySelector('i');
+        if (mobileNav.classList.contains('open')) {
+            icon.setAttribute('data-feather', 'x');
+        } else {
+            icon.setAttribute('data-feather', 'menu');
+        }
+        feather.replace();
+    }
+}
+
+// Navigation setup function
+function setupNavigation() {
+    // Track active section on scroll
+    const sections = document.querySelectorAll('section, main');
+    const navLinksDesktop = document.querySelectorAll('.nav-link');
+    
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '-80px 0px -50% 0px'
+    };
+    
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.id;
+                
+                // Update active nav link
+                navLinksDesktop.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+    
+    sections.forEach(section => {
+        if (section.id) {
+            navObserver.observe(section);
+        }
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (mobileNav && mobileNav.classList.contains('open')) {
+            if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        }
+    });
+    
+    // Close mobile menu on window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && mobileNav && mobileNav.classList.contains('open')) {
+            toggleMobileMenu();
+        }
+    });
+}
