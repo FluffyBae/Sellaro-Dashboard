@@ -43,6 +43,7 @@
                     <a href="#services" class="nav-link" data-key="nav-services">Layanan</a>
                     <a href="#packages" class="nav-link" data-key="nav-packages">Paket</a>
                     <a href="#footer" class="nav-link" data-key="nav-contact">Kontak</a>
+                    <a href="#" class="nav-link login-btn" data-key="nav-login">Login</a>
                 </nav>
                 
                 <div class="header-controls">
@@ -73,6 +74,7 @@
                 <a href="#services" class="mobile-nav-link" data-key="nav-services">Layanan</a>
                 <a href="#packages" class="mobile-nav-link" data-key="nav-packages">Paket</a>
                 <a href="#footer" class="mobile-nav-link" data-key="nav-contact">Kontak</a>
+                <a href="#" class="mobile-nav-link login-btn" data-key="nav-login">Login</a>
             </nav>
             </div>
         </div>
@@ -87,7 +89,7 @@
                         <h1 class="hero-title" data-key="hero-title">Boost Your Shopee Sales, Effortlessly</h1>
                         <p class="hero-subtitle" data-key="hero-subtitle">Sell More, Stress Less</p>
                         <p class="hero-description" data-key="hero-description">Tingkatkan penjualan Shopee Anda dengan strategi AI yang cerdas, analisis data mendalam, dan solusi yang disesuaikan dengan kebutuhan bisnis Anda.</p>
-                        <button class="cta-button" data-key="cta-button">Mulai Sekarang</button>
+                        <button class="cta-button" data-key="cta-button" onclick="scrollToPackages()">Mulai Sekarang</button>
                     </div>
                     <div class="hero-image">
                         <img src="assets/hero-image.svg" alt="AI Analytics Dashboard" class="hero-img">
@@ -273,7 +275,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="package-cta" data-key="package-cta">Mulai Sekarang</button>
+                        <button class="package-cta" data-key="package-cta" onclick="openPaymentModal()">Mulai Sekarang</button>
                     </div>
                 </div>
             </div>
@@ -291,6 +293,48 @@
             </div>
         </div>
     </footer>
+
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="modal-backdrop" onclick="closePaymentModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-key="payment-title">Mulai Berlangganan</h3>
+                <button class="modal-close" onclick="closePaymentModal()">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="package-summary">
+                    <h4 data-key="package-summary-title">Paket AI Complete</h4>
+                    <div class="price-display">
+                        <span class="price">Rp 350.000</span>
+                        <span class="period" data-key="package-period">/bulan</span>
+                    </div>
+                </div>
+                
+                <form class="payment-form" id="paymentForm">
+                    <div class="form-group">
+                        <label for="customerName" data-key="form-name">Nama Lengkap</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerEmail" data-key="form-email">Email</label>
+                        <input type="email" id="customerEmail" name="customerEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerPhone" data-key="form-phone">Nomor Telepon</label>
+                        <input type="tel" id="customerPhone" name="customerPhone" required>
+                    </div>
+                    
+                    <button type="submit" class="payment-btn" data-key="payment-btn">Pembayaran</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Chat Widget -->
     <div class="chat-widget" id="chatWidget">

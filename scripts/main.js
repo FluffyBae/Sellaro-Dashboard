@@ -35,7 +35,7 @@ const translations = {
         'package-title': 'Paket AI Complete',
         'package-period': '/bulan',
         'feature-ai-image-title': 'AI Image Creator',
-        'feature-ai-image-desc': 'Buat gambar produk yang lebih menarik dan profesional.',
+        'feature-ai-image-desc': 'Buat gambar toko dan produk yang lebih menarik dan profesional.',
         'feature-seo-title': 'AI SEO Optimizer',
         'feature-seo-desc': 'Optimasi judul & deskripsi produk agar lebih mudah ditemukan di pencarian Shopee.',
         'feature-ads-title': 'AI Ads Manager',
@@ -51,13 +51,20 @@ const translations = {
         'nav-services': 'Layanan',
         'nav-packages': 'Paket',
         'nav-contact': 'Kontak',
+        'nav-login': 'Login',
         'chat-title': 'Chat dengan AI Assistant',
         'chat-subtitle': 'Tanya tentang layanan kami',
         'bot-greeting': 'Halo! 👋 Saya AI Assistant Sellaro. Bagaimana saya bisa membantu Anda hari ini?',
         'chat-placeholder': 'Ketik pesan Anda...',
         'quick-services': 'Layanan apa saja yang tersedia?',
         'quick-pricing': 'Berapa harga layanannya?',
-        'quick-contact': 'Cara menghubungi tim?'
+        'quick-contact': 'Cara menghubungi tim?',
+        'payment-title': 'Mulai Berlangganan',
+        'package-summary-title': 'Paket AI Complete',
+        'form-name': 'Nama Lengkap',
+        'form-email': 'Email',
+        'form-phone': 'Nomor Telepon',
+        'payment-btn': 'Pembayaran'
     },
     en: {
         'hero-title': 'Boost Your Shopee Sales, Effortlessly',
@@ -94,7 +101,7 @@ const translations = {
         'package-title': 'AI Complete Package',
         'package-period': '/month',
         'feature-ai-image-title': 'AI Image Creator',
-        'feature-ai-image-desc': 'Create more attractive and professional product images.',
+        'feature-ai-image-desc': 'Create more attractive and professional store and product images.',
         'feature-seo-title': 'AI SEO Optimizer',
         'feature-seo-desc': 'Optimize product titles & descriptions to be easily found in Shopee search.',
         'feature-ads-title': 'AI Ads Manager',
@@ -110,13 +117,20 @@ const translations = {
         'nav-services': 'Services',
         'nav-packages': 'Packages',
         'nav-contact': 'Contact',
+        'nav-login': 'Login',
         'chat-title': 'Chat with AI Assistant',
         'chat-subtitle': 'Ask about our services',
         'bot-greeting': 'Hello! 👋 I\'m Sellaro AI Assistant. How can I help you today?',
         'chat-placeholder': 'Type your message...',
         'quick-services': 'What services do you offer?',
         'quick-pricing': 'What are your pricing rates?',
-        'quick-contact': 'How to contact your team?'
+        'quick-contact': 'How to contact your team?',
+        'payment-title': 'Start Subscription',
+        'package-summary-title': 'AI Complete Package',
+        'form-name': 'Full Name',
+        'form-email': 'Email',
+        'form-phone': 'Phone Number',
+        'payment-btn': 'Payment'
     }
 };
 
@@ -185,6 +199,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Setup chat widget
     setupChatWidget();
+    
+    // Setup payment form
+    const paymentForm = document.getElementById('paymentForm');
+    if (paymentForm) {
+        paymentForm.addEventListener('submit', handlePaymentSubmit);
+    }
 });
 
 // Setup event listeners
@@ -626,5 +646,52 @@ function generateBotResponse(message) {
 function scrollToBottom() {
     if (chatMessages) {
         chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+}
+
+// Scroll to packages section
+function scrollToPackages() {
+    document.getElementById('packages').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+
+// Payment modal functions
+function openPaymentModal() {
+    const modal = document.getElementById('paymentModal');
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    
+    // Re-initialize Feather icons
+    setTimeout(() => feather.replace(), 100);
+}
+
+function closePaymentModal() {
+    const modal = document.getElementById('paymentModal');
+    modal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+}
+
+// Handle payment form submission
+function handlePaymentSubmit(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formData = new FormData(form);
+    
+    // Simple validation
+    const name = formData.get('customerName').trim();
+    const email = formData.get('customerEmail').trim();
+    const phone = formData.get('customerPhone').trim();
+    
+    if (name && email && phone) {
+        // Store customer info in localStorage for the success page
+        localStorage.setItem('customerEmail', email);
+        
+        // Redirect to success page
+        window.location.href = '/successful-payment';
+    } else {
+        alert('Please fill in all fields.');
     }
 }
