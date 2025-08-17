@@ -1,6 +1,3 @@
-/* Import the existing main.css */
-@import url('/public/styles/main.css');
-
 /* Additional global styles for Next.js */
 html,
 body {

@@ -11,6 +11,34 @@ export default function Home() {
         if (typeof window !== 'undefined' && window.feather) {
             window.feather.replace()
         }
+
+        // Initialize theme from localStorage
+        const savedTheme = localStorage.getItem('theme') || 'light'
+        document.body.classList.remove('light-theme', 'dark-theme')
+        document.body.classList.add(`${savedTheme}-theme`)
+        
+        // Setup theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle')
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark'
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light'
+                
+                document.body.classList.remove('light-theme', 'dark-theme')
+                document.body.classList.add(`${newTheme}-theme`)
+                localStorage.setItem('theme', newTheme)
+            })
+        }
+
+        // Setup mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle')
+        const mobileNav = document.getElementById('mobileNav')
+        
+        if (mobileMenuToggle && mobileNav) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileNav.classList.toggle('show')
+            })
+        }
     }, [])
 
     const scrollToPackages = () => {

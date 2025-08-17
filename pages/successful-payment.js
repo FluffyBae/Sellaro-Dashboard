@@ -12,6 +12,11 @@ export default function SuccessfulPayment() {
         const email = localStorage.getItem('customerEmail') || 'customer@example.com'
         setCustomerEmail(email)
 
+        // Initialize theme from localStorage
+        const savedTheme = localStorage.getItem('theme') || 'light'
+        document.body.classList.remove('light-theme', 'dark-theme')
+        document.body.classList.add(`${savedTheme}-theme`)
+
         // Initialize Feather icons
         if (typeof window !== 'undefined' && window.feather) {
             window.feather.replace()

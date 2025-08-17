@@ -4,14 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  async rewrites() {
-    return [
-      {
-        source: '/assets/:path*',
-        destination: '/public/assets/:path*'
-      }
-    ]
-  }
+  trailingSlash: false,
+  assetPrefix: '',
 }
 
 module.exports = nextConfig
