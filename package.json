@@ -10,7 +10,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "eslint": "^9.33.0",
+    "eslint-config-next": "^15.4.6",
     "express": "^5.1.0",
-    "openai": "^5.12.2"
+    "next": "^15.4.6",
+    "openai": "^5.12.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   }
 }

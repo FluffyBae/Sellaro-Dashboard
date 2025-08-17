@@ -1,0 +1,71 @@
+<svg width="500" height="400" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0480FE"/>
+      <stop offset="100%" style="stop-color:#0BC4EE"/>
+    </linearGradient>
+    <linearGradient id="heroGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0BC4EE"/>
+      <stop offset="100%" style="stop-color:#0480FE"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="400" fill="currentColor" opacity="0.02" rx="20"/>
+  
+  <!-- Dashboard Frame -->
+  <rect x="50" y="80" width="400" height="280" fill="currentColor" opacity="0.05" rx="15" stroke="url(#heroGradient)" stroke-width="2"/>
+  
+  <!-- Header Bar -->
+  <rect x="50" y="80" width="400" height="50" fill="url(#heroGradient)" opacity="0.1" rx="15 15 0 0"/>
+  <circle cx="80" cy="105" r="6" fill="url(#heroGradient)"/>
+  <circle cx="100" cy="105" r="6" fill="url(#heroGradient)" opacity="0.7"/>
+  <circle cx="120" cy="105" r="6" fill="url(#heroGradient)" opacity="0.4"/>
+  
+  <!-- Chart Area -->
+  <rect x="80" y="160" width="340" height="160" fill="currentColor" opacity="0.02" rx="10"/>
+  
+  <!-- Bar Chart -->
+  <rect x="100" y="250" width="30" height="50" fill="url(#heroGradient)" opacity="0.6" rx="4"/>
+  <rect x="140" y="220" width="30" height="80" fill="url(#heroGradient)" opacity="0.8" rx="4"/>
+  <rect x="180" y="200" width="30" height="100" fill="url(#heroGradient)" rx="4"/>
+  <rect x="220" y="230" width="30" height="70" fill="url(#heroGradient)" opacity="0.7" rx="4"/>
+  <rect x="260" y="190" width="30" height="110" fill="url(#heroGradient)" opacity="0.9" rx="4"/>
+  <rect x="300" y="210" width="30" height="90" fill="url(#heroGradient)" opacity="0.8" rx="4"/>
+  
+  <!-- Growth Arrow -->
+  <path d="M350 280 L380 250 L380 265 L400 265 L400 235 L380 235 L380 250" fill="url(#heroGradient2)" filter="url(#glow)"/>
+  
+  <!-- AI Brain Icon -->
+  <circle cx="100" cy="50" r="25" fill="url(#heroGradient)" opacity="0.1"/>
+  <circle cx="100" cy="50" r="15" fill="url(#heroGradient)" opacity="0.2"/>
+  <path d="M85 45 Q100 35 115 45 Q115 55 100 65 Q85 55 85 45" fill="url(#heroGradient)" opacity="0.6"/>
+  <circle cx="95" cy="47" r="2" fill="url(#heroGradient)"/>
+  <circle cx="105" cy="47" r="2" fill="url(#heroGradient)"/>
+  
+  <!-- Floating Elements -->
+  <circle cx="400" cy="60" r="8" fill="url(#heroGradient)" opacity="0.3">
+    <animate attributeName="cy" values="60;50;60" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="420" cy="90" r="5" fill="url(#heroGradient2)" opacity="0.4">
+    <animate attributeName="cy" values="90;85;90" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="60" cy="300" r="6" fill="url(#heroGradient)" opacity="0.3">
+    <animate attributeName="cy" values="300;295;300" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Data Lines -->
+  <path d="M150 340 Q200 330 250 340 Q300 350 350 340" stroke="url(#heroGradient)" stroke-width="2" fill="none" opacity="0.4"/>
+  <path d="M120 350 Q180 345 240 350 Q300 355 360 350" stroke="url(#heroGradient2)" stroke-width="2" fill="none" opacity="0.3"/>
+  
+  <!-- Shopee-like Shopping Bag Icon -->
+  <path d="M450 150 L470 150 L468 180 L452 180 Z" fill="url(#heroGradient)" opacity="0.6"/>
+  <path d="M456 145 Q456 140 461 140 Q466 140 466 145" stroke="url(#heroGradient)" stroke-width="2" fill="none"/>
+</svg>
