@@ -155,9 +155,14 @@
             transform: translateY(-2px);
         }
 
-        .back-btn {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .back-btn, .login-btn {
             border: none;
             padding: 15px 30px;
             border-radius: 15px;
@@ -170,7 +175,24 @@
             display: inline-block;
         }
 
+        .back-btn {
+            background: var(--card-bg);
+            color: var(--text-color);
+            border: 2px solid var(--border-color);
+        }
+
         .back-btn:hover {
+            background: var(--bg-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .login-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 30px rgba(4, 128, 254, 0.4);
         }
@@ -233,6 +255,15 @@
             .copy-btn, .toggle-btn {
                 width: 100%;
             }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .back-btn, .login-btn {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -288,7 +319,10 @@
                     </div>
                 </div>
 
-                <a href="/" class="back-btn">Kembali ke Beranda</a>
+                <div class="action-buttons">
+                    <a href="/" class="back-btn">Kembali ke Beranda</a>
+                    <a href="#" class="login-btn">Login Sekarang</a>
+                </div>
             </div>
         </div>
     </div>
