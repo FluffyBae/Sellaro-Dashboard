@@ -21,13 +21,13 @@ args = "Sellaro Landing Page"
 name = "Sellaro Landing Page"
 author = "agent"
 
-[workflows.workflow.metadata]
-outputType = "webview"
-
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node dev.js"
+args = "node server.js"
 waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
 
 [[ports]]
 localPort = 5000
