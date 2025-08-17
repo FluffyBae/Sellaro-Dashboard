@@ -690,7 +690,7 @@ function handlePaymentSubmit(event) {
         localStorage.setItem('customerEmail', email);
         
         // Redirect to success page
-        window.location.href = '/successful-payment';
+        window.location.href = 'successful-payment.html';
     } else {
         alert('Please fill in all fields.');
     }
