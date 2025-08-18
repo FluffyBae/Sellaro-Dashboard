@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from '../hooks/useTranslation.jsx';
 import FullWebWhite from '../../assets/web-full.png'
 import FullWebDark from '../../assets/web-full-dark.png'
-import DarkVeilBackground from './DarkVeilBackground';
+import DarkVeil from './DarkVeil';
 
 function Hero() {
     const { t, language, setLanguage, theme, toggleTheme } = useTranslation();
@@ -16,8 +16,13 @@ function Hero() {
 
     return (
         <section className="hero" id="hero" style={{ position: 'relative', overflow: 'hidden' }}>
-            <DarkVeilBackground 
-                speed={1.2}
+            <DarkVeil 
+                speed={0.8}
+                hueShift={220}
+                noiseIntensity={0.1}
+                scanlineIntensity={0.05}
+                scanlineFrequency={0.2}
+                warpAmount={0.15}
             />
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 <div className="hero-content">

@@ -4,7 +4,7 @@ import PaymentModal from "./PaymentModal";
 import LogoBlack from '../../assets/logo-sellaro.svg'
 import LogoWhite from '../../assets/logo-sellaro-white.svg'
 import ErrorModal from "./ErrorModal";
-import DarkVeilBackground from './DarkVeilBackground';
+import DarkVeil from './DarkVeil';
 
 function Packages() {
     const { t } = useTranslation();
@@ -79,10 +79,15 @@ function Packages() {
 
     return (
         <section className="packages" id="packages" style={{ position: 'relative', overflow: 'hidden' }}>
-            <DarkVeilBackground 
-                speed={0.5}
-                className="packages-background"
-            />
+            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+                <DarkVeil 
+                    speed={0.5}
+                    hueShift={200}
+                    noiseIntensity={0.08}
+                    scanlineIntensity={0.03}
+                    warpAmount={0.12}
+                />
+            </div>
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 <h2 className="section-title text-center">
                     {t('packages-title')}
