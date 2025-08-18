@@ -369,11 +369,15 @@ body::before {
     align-items: center;
     justify-content: center;
     position: relative;
-    /*top: 0;*/
-    /*left: 50%;*/
-    /*transform: translateX(-50%);*/
     overflow: hidden;
     padding: var(--spacing-xl) 0;
+    background: linear-gradient(180deg, 
+        rgba(11, 15, 26, 0.95) 0%,
+        rgba(26, 9, 51, 0.8) 40%,
+        rgba(45, 27, 105, 0.6) 70%,
+        rgba(26, 9, 51, 0.4) 90%,
+        transparent 100%
+    );
 }
 
 /* Enhanced background effects for hero */
@@ -614,9 +618,36 @@ body::before {
     }
 }
 
-/* Services Section */
+/* Services Section with smooth transition */
 .services {
     padding: var(--spacing-3xl) 0;
+    position: relative;
+    background: linear-gradient(180deg, 
+        rgba(11, 15, 26, 0.3) 0%,
+        rgba(26, 9, 51, 0.4) 30%,
+        rgba(45, 27, 105, 0.5) 60%,
+        rgba(26, 9, 51, 0.4) 90%,
+        transparent 100%
+    );
+}
+
+.services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 40%, rgba(4, 128, 254, 0.08) 0%, transparent 55%),
+        radial-gradient(circle at 80% 60%, rgba(11, 196, 238, 0.06) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.services .container {
+    position: relative;
+    z-index: 1;
 }
 
 .section-title {
