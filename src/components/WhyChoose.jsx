@@ -60,35 +60,7 @@ function WhyChoose() {
             <style jsx>{`
                 .why-choose {
                     padding: var(--spacing-3xl) 0;
-                    position: relative;
-                    background: linear-gradient(180deg, 
-                        transparent 0%,
-                        rgba(45, 27, 105, 0.3) 20%,
-                        rgba(139, 92, 246, 0.4) 40%,
-                        rgba(45, 27, 105, 0.6) 60%,
-                        rgba(26, 9, 51, 0.5) 80%,
-                        rgba(11, 15, 26, 0.3) 100%
-                    );
-                }
-
-                .why-choose::before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: 
-                        radial-gradient(circle at 30% 20%, rgba(4, 128, 254, 0.1) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(11, 196, 238, 0.08) 0%, transparent 60%),
-                        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.06) 0%, transparent 70%);
-                    pointer-events: none;
-                    z-index: 0;
-                }
-
-                .why-choose .container {
-                    position: relative;
-                    z-index: 1;
+                    background: linear-gradient(135deg, rgba(4, 128, 254, 0.05) 0%, var(--bg-color) 50%, rgba(11, 196, 238, 0.05) 100%);
                 }
 
                 .section-title {

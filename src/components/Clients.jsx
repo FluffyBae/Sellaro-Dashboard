@@ -36,33 +36,7 @@ function Clients() {
             <style jsx>{`
                 .clients {
                     padding: var(--spacing-3xl) 0;
-                    position: relative;
-                    background: linear-gradient(180deg, 
-                        transparent 0%,
-                        rgba(26, 9, 51, 0.2) 20%,
-                        rgba(45, 27, 105, 0.4) 50%,
-                        rgba(26, 9, 51, 0.3) 80%,
-                        transparent 100%
-                    );
-                }
-
-                .clients::before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: 
-                        radial-gradient(circle at 25% 30%, rgba(4, 128, 254, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 75% 70%, rgba(11, 196, 238, 0.06) 0%, transparent 50%);
-                    pointer-events: none;
-                    z-index: 0;
-                }
-
-                .clients .container {
-                    position: relative;
-                    z-index: 1;
+                    background: var(--bg-color);
                 }
 
                 .clients-title {
