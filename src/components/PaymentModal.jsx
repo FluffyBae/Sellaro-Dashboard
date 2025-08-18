@@ -16,6 +16,17 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
         if (window.feather) {
             window.feather.replace();
         }
+        // Disable body scroll when modal is open
+        if (isOpen) {
+            document.body.classList.add('modal-open');
+        } else {
+            document.body.classList.remove('modal-open');
+        }
+        
+        // Cleanup on unmount
+        return () => {
+            document.body.classList.remove('modal-open');
+        };
     }, [isOpen]);
 
     // // Listen for payment modal events
@@ -145,22 +156,37 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                         left: 0;
                         right: 0;
                         bottom: 0;
-                        background: rgba(0, 0, 0, 0.5);
+                        background: rgba(0, 0, 0, 0.8);
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         z-index: var(--z-modal);
                         padding: var(--spacing-md);
+                        backdrop-filter: blur(5px);
+                        -webkit-backdrop-filter: blur(5px);
                     }
 
                     .payment-modal {
-                        background: var(--card-bg);
+                        background: #1a0933;
+                        border: 1px solid rgba(255, 255, 255, 0.1);
                         border-radius: var(--radius-xl);
                         width: 100%;
                         max-width: 800px;
                         max-height: 90vh;
                         overflow-y: auto;
-                        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+                        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+                        animation: modalSlideIn 0.3s ease-out;
+                    }
+                    
+                    @keyframes modalSlideIn {
+                        from {
+                            opacity: 0;
+                            transform: translateY(30px) scale(0.95);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0) scale(1);
+                        }
                     }
 
                     .modal-header {
@@ -215,10 +241,10 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                     }
 
                     .package-summary {
-                        background: var(--bg-color);
+                        background: rgba(255, 255, 255, 0.05);
                         border-radius: var(--radius-lg);
                         padding: var(--spacing-xl);
-                        border: 1px solid var(--border-color);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
                     }
 
                     .package-summary h3 {
@@ -283,10 +309,10 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
 
                     .form-group input {
                         padding: var(--spacing-md);
-                        border: 1px solid var(--border-color);
+                        border: 1px solid rgba(255, 255, 255, 0.2);
                         border-radius: var(--radius-md);
-                        background: var(--bg-color);
-                        color: var(--text-color);
+                        background: rgba(255, 255, 255, 0.05);
+                        color: #FFFFFF;
                         font-size: var(--font-size-base);
                         transition: border-color var(--transition-fast);
                     }
