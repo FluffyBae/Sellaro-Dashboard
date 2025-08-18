@@ -8,8 +8,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0480FE',
-        secondary: '#0BC4EE',
+        primary: {
+          DEFAULT: '#0480FE',
+          50: '#f0f8ff',
+          100: '#e0f1fe',
+          500: '#0480FE',
+          600: '#0366d6',
+        },
+        secondary: {
+          DEFAULT: '#0BC4EE',
+          50: '#f0fdff',
+          100: '#ccf7fe',
+          500: '#0BC4EE',
+          600: '#0891b2',
+        },
         dark: {
           bg: '#0B0F1A',
           card: 'rgba(255, 255, 255, 0.1)',

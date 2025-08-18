@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from '../hooks/useTranslation.jsx';
+import { useTranslation } from '../hooks/TranslationProvider.jsx';
 
 function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
     const { t } = useTranslation();
@@ -83,22 +83,22 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                 </div>
 
                 {/* Pricing Display */}
-                <div className="pricing-section">
-                    <div className="price-display">
-                        <span className="price-amount">Rp 360.000</span>
-                        <span className="price-period">/bulan</span>
+                <div className="px-8 py-6 border-b border-white/8">
+                    <div className="flex items-baseline justify-center mb-6">
+                        <span className="text-4xl font-bold text-white">Rp 360.000</span>
+                        <span className="text-white/60 ml-2">/bulan</span>
                     </div>
-                    <div className="package-features">
-                        <span className="feature-badge">
-                            <i data-feather="check"></i>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                        <span className="flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-3 py-1.5 rounded-full text-sm">
+                            <i data-feather="check" className="w-3 h-3"></i>
                             AI Complete Package
                         </span>
-                        <span className="feature-badge">
-                            <i data-feather="check"></i>
+                        <span className="flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-3 py-1.5 rounded-full text-sm">
+                            <i data-feather="check" className="w-3 h-3"></i>
                             Dashboard Premium
                         </span>
-                        <span className="feature-badge">
-                            <i data-feather="check"></i>
+                        <span className="flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-3 py-1.5 rounded-full text-sm">
+                            <i data-feather="check" className="w-3 h-3"></i>
                             Rp50k AI Credit
                         </span>
                     </div>

@@ -10,15 +10,15 @@
   }
 
   body {
-    font-family: theme('fontFamily.body');
-    background: theme('colors.dark.bg');
+    font-family: 'Manrope', sans-serif;
+    background: #0B0F1A;
     color: white;
     line-height: 1.6;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: theme('fontFamily.heading');
+    font-family: 'Space Grotesk', sans-serif;
   }
 }
 
@@ -62,7 +62,7 @@
   
   /* Gradient text effect */
   .text-gradient {
-    background: linear-gradient(135deg, theme('colors.primary'), theme('colors.secondary'));
+    background: linear-gradient(135deg, #0480FE, #0BC4EE);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

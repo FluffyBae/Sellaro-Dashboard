@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from '../hooks/useTranslation.jsx';
+import { useTranslation } from '../hooks/TranslationProvider.jsx';
 
 
 function ErrorModal({ isOpen, setIsOpen, errorMessage }) {
