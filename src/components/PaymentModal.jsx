@@ -67,8 +67,13 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
     return (
         <div className="payment-modal-overlay" onClick={() => setIsOpen(false)}>
             <div className="payment-modal" onClick={(e) => e.stopPropagation()}>
+                {/* Modal Header */}
                 <div className="modal-header">
+                    <div className="modal-icon">
+                        <i data-feather="credit-card"></i>
+                    </div>
                     <h2>{t('payment-title')}</h2>
+                    <p className="modal-subtitle">Mulai perjalanan bisnis Anda dengan Sellaro</p>
                     <button 
                         className="modal-close"
                         onClick={() => setIsOpen(false)}
@@ -77,76 +82,88 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                     </button>
                 </div>
 
-                <div className="modal-content">
-                    <div className="package-summary">
-                        <h3>{t('package-summary-title')}</h3>
-                        <div className="summary-price">
-                            <span className="price">Rp 360.000</span>
-                            <span className="period">/bulan</span>
-                        </div>
-                        <div className="summary-features">
-                            <div className="feature-item">
-                                <i data-feather="check"></i>
-                                <span>AI Image Creator</span>
-                            </div>
-                            <div className="feature-item">
-                                <i data-feather="check"></i>
-                                <span>AI SEO Optimizer</span>
-                            </div>
-                            <div className="feature-item">
-                                <i data-feather="check"></i>
-                                <span>AI Ads Manager</span>
-                            </div>
-                            <div className="feature-item">
-                                <i data-feather="check"></i>
-                                <span>Smart Dashboard</span>
-                            </div>
-                            <div className="feature-item">
-                                <i data-feather="check"></i>
-                                <span>Rp50.000 AI Credit</span>
-                            </div>
-                        </div>
+                {/* Pricing Display */}
+                <div className="pricing-section">
+                    <div className="price-display">
+                        <span className="price-amount">Rp 360.000</span>
+                        <span className="price-period">/bulan</span>
                     </div>
+                    <div className="package-features">
+                        <span className="feature-badge">
+                            <i data-feather="check"></i>
+                            AI Complete Package
+                        </span>
+                        <span className="feature-badge">
+                            <i data-feather="check"></i>
+                            Dashboard Premium
+                        </span>
+                        <span className="feature-badge">
+                            <i data-feather="check"></i>
+                            Rp50k AI Credit
+                        </span>
+                    </div>
+                </div>
 
-                    <form className="payment-form" onSubmit={handleSubmit}>
+                {/* Form Section */}
+                <form className="payment-form" onSubmit={handleSubmit}>
+                    <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="name">{t('form-name')}</label>
                             <input
                                 type="text"
                                 id="name"
                                 name="name"
+                                placeholder={t('form-name')}
                                 value={formData.name}
                                 onChange={handleInputChange}
+                                required
                             />
                         </div>
-
+                    </div>
+                    
+                    <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="email">{t('form-email')}</label>
                             <input
                                 type="email"
                                 id="email"
                                 name="email"
+                                placeholder={t('form-email')}
                                 value={formData.email}
                                 onChange={handleInputChange}
+                                required
                             />
+                            <i data-feather="mail" className="input-icon"></i>
                         </div>
+                    </div>
 
+                    <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="phone">{t('form-phone')}</label>
                             <input
                                 type="tel"
                                 id="phone"
                                 name="phone"
+                                placeholder={t('form-phone')}
                                 value={formData.phone}
                                 onChange={handleInputChange}
+                                required
                             />
+                            <i data-feather="phone" className="input-icon"></i>
                         </div>
+                    </div>
 
-                        <button disabled={isDisabled} onClick={() => onPaymentClick(formData)} type="submit" className={`btn payment-submit ${isDisabled ? 'disabled' : 'btn-primary'}`}>
-                            {t('payment-btn')}
-                            <i data-feather="credit-card"></i>
-                        </button>
-                    </form>
+                    <button 
+                        disabled={isDisabled} 
+                        onClick={() => onPaymentClick(formData)} 
+                        type="submit" 
+                        className="payment-submit"
+                    >
+                        <span>{t('payment-btn')}</span>
+                        <i data-feather="arrow-right"></i>
+                    </button>
+                </form>
+
+                {/* Footer */}
+                <div className="modal-footer">
+                    <p>Dengan melanjutkan, Anda menyetujui <a href="#">Terms & Service</a> kami</p>
                 </div>
 
                 <style jsx>{`
@@ -162,26 +179,28 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                         justify-content: center;
                         z-index: var(--z-modal);
                         padding: var(--spacing-md);
-                        backdrop-filter: blur(5px);
-                        -webkit-backdrop-filter: blur(5px);
+                        backdrop-filter: blur(8px);
+                        -webkit-backdrop-filter: blur(8px);
                     }
 
                     .payment-modal {
-                        background: #1a0933;
+                        background: rgba(20, 20, 35, 0.95);
                         border: 1px solid rgba(255, 255, 255, 0.1);
-                        border-radius: var(--radius-xl);
+                        border-radius: 24px;
                         width: 100%;
-                        max-width: 800px;
-                        max-height: 90vh;
-                        overflow-y: auto;
-                        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
-                        animation: modalSlideIn 0.3s ease-out;
+                        max-width: 480px;
+                        overflow: hidden;
+                        box-shadow: 
+                            0 20px 80px rgba(0, 0, 0, 0.6),
+                            0 0 0 1px rgba(255, 255, 255, 0.05);
+                        animation: modalSlideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                        position: relative;
                     }
                     
                     @keyframes modalSlideIn {
                         from {
                             opacity: 0;
-                            transform: translateY(30px) scale(0.95);
+                            transform: translateY(20px) scale(0.95);
                         }
                         to {
                             opacity: 1;
@@ -190,144 +209,252 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                     }
 
                     .modal-header {
+                        text-align: center;
+                        padding: 40px 32px 24px;
+                        position: relative;
+                    }
+
+                    .modal-icon {
+                        width: 64px;
+                        height: 64px;
                         background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-                        color: white;
-                        padding: var(--spacing-xl);
-                        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+                        border-radius: 20px;
                         display: flex;
-                        justify-content: space-between;
                         align-items: center;
+                        justify-content: center;
+                        margin: 0 auto 20px;
+                        box-shadow: 0 8px 32px rgba(4, 128, 254, 0.3);
+                    }
+
+                    .modal-icon i {
+                        width: 28px;
+                        height: 28px;
+                        color: white;
                     }
 
                     .modal-header h2 {
+                        color: #FFFFFF;
+                        font-size: 28px;
+                        font-weight: 700;
+                        margin: 0 0 8px 0;
+                        line-height: 1.2;
+                    }
+
+                    .modal-subtitle {
+                        color: rgba(255, 255, 255, 0.6);
+                        font-size: 16px;
                         margin: 0;
-                        font-size: var(--font-size-2xl);
+                        line-height: 1.4;
                     }
 
                     .modal-close {
-                        background: rgba(255, 255, 255, 0.2);
-                        border: none;
-                        border-radius: var(--radius-md);
-                        width: 40px;
-                        height: 40px;
+                        position: absolute;
+                        top: 24px;
+                        right: 24px;
+                        width: 36px;
+                        height: 36px;
+                        background: rgba(255, 255, 255, 0.05);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        border-radius: 12px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         cursor: pointer;
-                        transition: background-color var(--transition-fast);
+                        transition: all 0.2s ease;
                     }
 
                     .modal-close:hover {
-                        background: rgba(255, 255, 255, 0.3);
+                        background: rgba(255, 255, 255, 0.1);
+                        border-color: rgba(255, 255, 255, 0.2);
                     }
 
                     .modal-close i {
-                        width: 20px;
-                        height: 20px;
-                        color: white;
+                        width: 18px;
+                        height: 18px;
+                        color: rgba(255, 255, 255, 0.7);
                     }
 
-                    .modal-content {
-                        padding: var(--spacing-xl);
-                        display: grid;
-                        grid-template-columns: 1fr;
-                        gap: var(--spacing-2xl);
+                    .pricing-section {
+                        text-align: center;
+                        padding: 0 32px 32px;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
                     }
 
-                    @media (min-width: 768px) {
-                        .modal-content {
-                            grid-template-columns: 1fr 1fr;
-                        }
+                    .price-display {
+                        margin-bottom: 20px;
                     }
 
-                    .package-summary {
-                        background: rgba(255, 255, 255, 0.05);
-                        border-radius: var(--radius-lg);
-                        padding: var(--spacing-xl);
-                        border: 1px solid rgba(255, 255, 255, 0.1);
+                    .price-amount {
+                        font-size: 36px;
+                        font-weight: 800;
+                        color: #FFFFFF;
+                        margin-right: 8px;
                     }
 
-                    .package-summary h3 {
-                        margin-bottom: var(--spacing-lg);
-                        color: var(--text-color);
+                    .price-period {
+                        font-size: 18px;
+                        color: rgba(255, 255, 255, 0.6);
+                        font-weight: 500;
                     }
 
-                    .summary-price {
+                    .package-features {
                         display: flex;
-                        align-items: baseline;
-                        gap: var(--spacing-xs);
-                        margin-bottom: var(--spacing-xl);
+                        flex-wrap: wrap;
+                        gap: 8px;
+                        justify-content: center;
                     }
 
-                    .price {
-                        font-size: var(--font-size-3xl);
-                        font-weight: 600;
-                        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-clip: text;
-                    }
-
-                    .period {
-                        color: rgba(var(--text-color), 0.7);
-                    }
-
-                    .summary-features {
-                        display: flex;
-                        flex-direction: column;
-                        gap: var(--spacing-md);
-                    }
-
-                    .feature-item {
+                    .feature-badge {
                         display: flex;
                         align-items: center;
-                        gap: var(--spacing-sm);
+                        gap: 6px;
+                        background: rgba(4, 128, 254, 0.1);
+                        border: 1px solid rgba(4, 128, 254, 0.2);
+                        color: #4A9EFF;
+                        padding: 6px 12px;
+                        border-radius: 20px;
+                        font-size: 14px;
+                        font-weight: 500;
                     }
 
-                    .feature-item i {
-                        width: 16px;
-                        height: 16px;
-                        color: var(--primary-color);
+                    .feature-badge i {
+                        width: 14px;
+                        height: 14px;
                     }
 
                     .payment-form {
-                        display: flex;
-                        flex-direction: column;
-                        gap: var(--spacing-lg);
+                        padding: 32px;
+                    }
+
+                    .form-row {
+                        margin-bottom: 20px;
                     }
 
                     .form-group {
-                        display: flex;
-                        flex-direction: column;
-                        gap: var(--spacing-xs);
-                    }
-
-                    .form-group label {
-                        font-weight: 500;
-                        color: var(--text-color);
+                        position: relative;
                     }
 
                     .form-group input {
-                        padding: var(--spacing-md);
-                        border: 1px solid rgba(255, 255, 255, 0.2);
-                        border-radius: var(--radius-md);
-                        background: rgba(255, 255, 255, 0.05);
+                        width: 100%;
+                        height: 56px;
+                        background: rgba(255, 255, 255, 0.03);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        border-radius: 16px;
                         color: #FFFFFF;
-                        font-size: var(--font-size-base);
-                        transition: border-color var(--transition-fast);
+                        font-size: 16px;
+                        padding: 0 20px;
+                        padding-right: 48px;
+                        transition: all 0.3s ease;
+                        box-sizing: border-box;
+                    }
+
+                    .form-group input::placeholder {
+                        color: rgba(255, 255, 255, 0.4);
+                        font-weight: 500;
                     }
 
                     .form-group input:focus {
                         outline: none;
                         border-color: var(--primary-color);
+                        background: rgba(255, 255, 255, 0.05);
+                        box-shadow: 0 0 0 3px rgba(4, 128, 254, 0.1);
+                    }
+
+                    .input-icon {
+                        position: absolute;
+                        right: 16px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 20px;
+                        height: 20px;
+                        color: rgba(255, 255, 255, 0.3);
+                        pointer-events: none;
                     }
 
                     .payment-submit {
                         width: 100%;
-                        padding: var(--spacing-md) var(--spacing-xl);
-                        font-size: var(--font-size-lg);
+                        height: 56px;
+                        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                        border: none;
+                        border-radius: 16px;
+                        color: white;
+                        font-size: 16px;
                         font-weight: 600;
-                        margin-top: var(--spacing-lg);
+                        cursor: pointer;
+                        margin-top: 12px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 4px 20px rgba(4, 128, 254, 0.3);
+                    }
+
+                    .payment-submit:hover:not(:disabled) {
+                        transform: translateY(-2px);
+                        box-shadow: 0 8px 30px rgba(4, 128, 254, 0.4);
+                    }
+
+                    .payment-submit:disabled {
+                        opacity: 0.5;
+                        cursor: not-allowed;
+                        transform: none;
+                        box-shadow: none;
+                    }
+
+                    .payment-submit i {
+                        width: 20px;
+                        height: 20px;
+                        transition: transform 0.3s ease;
+                    }
+
+                    .payment-submit:hover:not(:disabled) i {
+                        transform: translateX(2px);
+                    }
+
+                    .modal-footer {
+                        padding: 0 32px 32px;
+                        text-align: center;
+                    }
+
+                    .modal-footer p {
+                        color: rgba(255, 255, 255, 0.4);
+                        font-size: 14px;
+                        margin: 0;
+                        line-height: 1.4;
+                    }
+
+                    .modal-footer a {
+                        color: var(--primary-color);
+                        text-decoration: none;
+                        font-weight: 500;
+                    }
+
+                    .modal-footer a:hover {
+                        text-decoration: underline;
+                    }
+
+                    @media (max-width: 480px) {
+                        .payment-modal {
+                            margin: 20px;
+                            max-width: calc(100% - 40px);
+                        }
+                        
+                        .modal-header {
+                            padding: 32px 24px 20px;
+                        }
+                        
+                        .pricing-section {
+                            padding: 0 24px 24px;
+                        }
+                        
+                        .payment-form {
+                            padding: 24px;
+                        }
+                        
+                        .modal-footer {
+                            padding: 0 24px 24px;
+                        }
                     }
                 `}</style>
             </div>
