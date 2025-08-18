@@ -60,7 +60,12 @@ function WhyChoose() {
             <style jsx>{`
                 .why-choose {
                     padding: var(--spacing-3xl) 0;
-                    background: linear-gradient(135deg, rgba(4, 128, 254, 0.05) 0%, var(--bg-color) 50%, rgba(11, 196, 238, 0.05) 100%);
+                    background: linear-gradient(180deg, 
+                        rgba(45, 27, 105, 0.2) 0%, 
+                        rgba(45, 27, 105, 0.3) 30%, 
+                        rgba(26, 9, 51, 0.4) 70%, 
+                        var(--bg-color) 100%
+                    );
                 }
 
                 .section-title {

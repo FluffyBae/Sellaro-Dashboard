@@ -36,7 +36,11 @@ function Clients() {
             <style jsx>{`
                 .clients {
                     padding: var(--spacing-3xl) 0;
-                    background: var(--bg-color);
+                    background: linear-gradient(180deg, 
+                        var(--bg-color) 0%, 
+                        var(--bg-color) 70%, 
+                        rgba(45, 27, 105, 0.2) 100%
+                    );
                 }
 
                 .clients-title {
