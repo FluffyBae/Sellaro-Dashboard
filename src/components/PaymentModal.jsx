@@ -85,7 +85,7 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                 {/* Pricing Display */}
                 <div className="pricing-section">
                     <div className="price-display">
-                        <span className="price-amount">Rp 360.000</span>
+                        <span className="price-amount">Rp 368.000</span>
                         <span className="price-period">/bulan</span>
                     </div>
                     <div className="package-features">

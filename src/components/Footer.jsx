@@ -18,7 +18,7 @@ function Footer() {
                 <div className="footer-content">
                     <div className="footer-main">
                         <div className="footer-brand">
-                            <img src={theme === 'light' ? LogoBlack : LogoWhite} alt="Sellaro.id" className="footer-logo" />
+                            <img src={LogoWhite} alt="Sellaro.id" className="footer-logo" />
                             <p className="footer-description">
                                 Tingkatkan penjualan Shopee Anda dengan strategi AI yang cerdas dan solusi yang disesuaikan.
                             </p>
@@ -106,7 +106,8 @@ function Footer() {
                 }
 
                 .footer-description {
-                    color: rgba(var(--text-color), 0.8);
+                    //color: rgba(var(--text-color), 0.8);
+                    color: var(--text-color);
                     line-height: 1.6;
                     margin: 0;
                     max-width: 300px;
@@ -116,6 +117,7 @@ function Footer() {
                     font-size: var(--font-size-lg);
                     margin-bottom: var(--spacing-lg);
                     color: var(--text-color);
+                    //color: white;
                 }
 
                 .contact-item {
@@ -123,7 +125,8 @@ function Footer() {
                     align-items: center;
                     gap: var(--spacing-sm);
                     margin-bottom: var(--spacing-md);
-                    color: rgba(var(--text-color), 0.8);
+                    //color: rgba(var(--text-color), 0.8);
+                    color: var(--text-color);
                 }
 
                 .contact-item i {
@@ -186,7 +189,8 @@ function Footer() {
                 }
 
                 .footer-bottom p {
-                    color: rgba(var(--text-color), 0.6);
+                    //color: rgba(var(--text-color), 0.6);
+                    color: var(--text-color);
                     margin: 0;
                 }
 
