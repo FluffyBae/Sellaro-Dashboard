@@ -141,7 +141,7 @@ let currentLang = 'id';
 const chatResponses = {
     id: {
         services: "Kami menyediakan 6 layanan utama:\n\n🔍 Analisis Tampilan Toko\n🎨 Re-Design Toko\n✍️ Copywriting\n📷 Foto Product\n🎯 Rekomendasi Iklan\n📱 Optimasi UX Toko\n\nLayanan mana yang paling Anda butuhkan?",
-        pricing: "Kami menawarkan Paket AI Complete dengan harga Rp 350.000/bulan yang mencakup:\n\n🎨 AI Image Creator\n🔍 AI SEO Optimizer\n📈 AI Ads Manager\n📊 Smart Dashboard\n💳 Rp50.000 AI Credit/bulan\n\nHubungi kami untuk konsultasi gratis! 📞",
+        pricing: "Kami menawarkan Paket AI Complete dengan harga Rp 360.000/bulan yang mencakup:\n\n🎨 AI Image Creator\n🔍 AI SEO Optimizer\n📈 AI Ads Manager\n📊 Smart Dashboard\n💳 Rp50.000 AI Credit/bulan\n\nHubungi kami untuk konsultasi gratis! 📞",
         contact: "Anda bisa menghubungi tim kami melalui:\n\n📧 Email: contact@diserbu.id\n📱 WhatsApp: +62 812-3456-7890\n⏰ Jam kerja: Senin-Jumat 09:00-17:00\n\nAtau klik tombol 'Mulai Sekarang' di halaman ini untuk konsultasi langsung!",
         default: "Terima kasih atas pertanyaannya! Untuk informasi lebih detail, silakan hubungi tim support kami di contact@diserbu.id atau gunakan tombol quick reply di bawah untuk pertanyaan umum. 😊"
     },

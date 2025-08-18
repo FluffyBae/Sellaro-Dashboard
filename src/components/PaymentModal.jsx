@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation.jsx';
 
-function PaymentModal() {
+function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
     const { t } = useTranslation();
-    const [isOpen, setIsOpen] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(true);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: ''
     });
+
+
 
     useEffect(() => {
         if (window.feather) {
@@ -16,19 +18,24 @@ function PaymentModal() {
         }
     }, [isOpen]);
 
-    // Listen for payment modal events
-    useEffect(() => {
-        const handlePaymentOpen = () => setIsOpen(true);
-        
-        // Custom event listener for opening payment modal
-        window.addEventListener('openPaymentModal', handlePaymentOpen);
-        
-        return () => {
-            window.removeEventListener('openPaymentModal', handlePaymentOpen);
-        };
-    }, []);
+    // // Listen for payment modal events
+    // useEffect(() => {
+    //     const handlePaymentOpen = () => setIsOpen(true);
+    //
+    //     // Custom event listener for opening payment modal
+    //     window.addEventListener('openPaymentModal', handlePaymentOpen);
+    //
+    //     return () => {
+    //         window.removeEventListener('openPaymentModal', handlePaymentOpen);
+    //     };
+    // }, []);
 
     const handleInputChange = (e) => {
+        if (!formData.name || !formData.email || !formData.phone) {
+            setIsDisabled(true);
+        } else {
+            setIsDisabled(false);
+        }
         const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
@@ -38,10 +45,9 @@ function PaymentModal() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         // Here you would normally handle the payment processing
-        console.log('Payment form submitted:', formData);
-        alert('Terima kasih! Tim kami akan segera menghubungi Anda.');
-        setIsOpen(false);
+        // setIsOpen(false);
         setFormData({ name: '', email: '', phone: '' });
     };
 
@@ -64,7 +70,7 @@ function PaymentModal() {
                     <div className="package-summary">
                         <h3>{t('package-summary-title')}</h3>
                         <div className="summary-price">
-                            <span className="price">Rp 199.000</span>
+                            <span className="price">Rp 360.000</span>
                             <span className="period">/bulan</span>
                         </div>
                         <div className="summary-features">
@@ -100,7 +106,6 @@ function PaymentModal() {
                                 name="name"
                                 value={formData.name}
                                 onChange={handleInputChange}
-                                required
                             />
                         </div>
 
@@ -112,7 +117,6 @@ function PaymentModal() {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleInputChange}
-                                required
                             />
                         </div>
 
@@ -124,11 +128,10 @@ function PaymentModal() {
                                 name="phone"
                                 value={formData.phone}
                                 onChange={handleInputChange}
-                                required
                             />
                         </div>
 
-                        <button type="submit" className="btn btn-primary payment-submit">
+                        <button disabled={isDisabled} onClick={() => onPaymentClick(formData)} type="submit" className={`btn payment-submit ${isDisabled ? 'disabled' : 'btn-primary'}`}>
                             {t('payment-btn')}
                             <i data-feather="credit-card"></i>
                         </button>

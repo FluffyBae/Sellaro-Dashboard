@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation.jsx';
+import PaymentModal from "./PaymentModal";
+import  LogoBlack  from '../../assets/logo-sellaro.svg'
+import  LogoWhite  from '../../assets/logo-sellaro-white.svg'
+import ErrorModal from "./ErrorModal";
 
 function Packages() {
     const { t } = useTranslation();
     const [showPayment, setShowPayment] = useState(false);
+    const [errorModal, setErrorModal] = useState(false);
 
     useEffect(() => {
         if (window.feather) {
@@ -39,6 +44,38 @@ function Packages() {
         }
     ];
 
+
+    const handlePaymentSubmission = async formData => {
+        const res = await fetch('https://api.mayar.id/hl/v1/payment/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${import.meta.env.VITE_PAYMENT_API_KEY}`
+            },
+            body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                amount: 360000,
+                mobile: formData.phone,
+                redirectUrl: "https://sellaro.id/successful-payment?email=" + formData.email + "&password=admin123",
+                description: "Pemabayaran Paket Sellaro.id, Nama: " + formData.name,
+                expiredAt: new Date(Date.now() + 15 * 60 * 1000).toISOString()
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.statusCode === 200) {
+                window.location.href = data.data.link;
+            }
+            else {
+                setErrorModal(true);
+            }
+        })
+        .catch(error => {
+            setErrorModal(true);
+        });
+    }
+
     return (
         <section className="packages" id="packages">
             <div className="container">
@@ -51,7 +88,7 @@ function Packages() {
                         <div className="package-header">
                             <h3 className="package-title">{t('package-title')}</h3>
                             <div className="package-price">
-                                <span className="price-amount">Rp 199.000</span>
+                                <span className="price-amount">Rp 360.000</span>
                                 <span className="price-period">{t('package-period')}</span>
                             </div>
                         </div>
@@ -81,6 +118,8 @@ function Packages() {
                 </div>
             </div>
 
+            <PaymentModal isOpen={showPayment} setIsOpen={setShowPayment} onPaymentClick={handlePaymentSubmission} />
+            <ErrorModal isOpen={errorModal} setIsOpen={setErrorModal} />
             <style jsx>{`
                 .packages {
                     padding: var(--spacing-3xl) 0;

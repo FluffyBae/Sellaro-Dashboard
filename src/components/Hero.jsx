@@ -1,8 +1,10 @@
 import React from 'react';
 import { useTranslation } from '../hooks/useTranslation.jsx';
+import  FullWebWhite  from '../../assets/web-full.png'
+import  FullWebDark  from '../../assets/web-full-dark.png'
 
 function Hero() {
-    const { t } = useTranslation();
+    const { t, language, setLanguage, theme, toggleTheme } = useTranslation();
 
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
@@ -43,23 +45,24 @@ function Hero() {
                                 </div>
                             </div>
                             <div className="card-content">
-                                <div className="chart-container">
-                                    <div className="chart-bar" style={{height: '60%'}}></div>
-                                    <div className="chart-bar" style={{height: '80%'}}></div>
-                                    <div className="chart-bar" style={{height: '100%'}}></div>
-                                    <div className="chart-bar" style={{height: '75%'}}></div>
-                                    <div className="chart-bar" style={{height: '90%'}}></div>
-                                </div>
-                                <div className="stats-grid">
-                                    <div className="stat-item">
-                                        <div className="stat-value">+150%</div>
-                                        <div className="stat-label">Sales</div>
-                                    </div>
-                                    <div className="stat-item">
-                                        <div className="stat-value">24/7</div>
-                                        <div className="stat-label">AI Support</div>
-                                    </div>
-                                </div>
+                                <img src={theme === 'light' ? FullWebWhite : FullWebDark} style={{ width: '100%' }} />
+                                {/*<div className="chart-container">*/}
+                                {/*    <div className="chart-bar" style={{height: '60%'}}></div>*/}
+                                {/*    <div className="chart-bar" style={{height: '80%'}}></div>*/}
+                                {/*    <div className="chart-bar" style={{height: '100%'}}></div>*/}
+                                {/*    <div className="chart-bar" style={{height: '75%'}}></div>*/}
+                                {/*    <div className="chart-bar" style={{height: '90%'}}></div>*/}
+                                {/*</div>*/}
+                                {/*<div className="stats-grid">*/}
+                                {/*    <div className="stat-item">*/}
+                                {/*        <div className="stat-value">+150%</div>*/}
+                                {/*        <div className="stat-label">Sales</div>*/}
+                                {/*    </div>*/}
+                                {/*    <div className="stat-item">*/}
+                                {/*        <div className="stat-value">24/7</div>*/}
+                                {/*        <div className="stat-label">AI Support</div>*/}
+                                {/*    </div>*/}
+                                {/*</div>*/}
                             </div>
                         </div>
                     </div>
@@ -151,10 +154,10 @@ function Hero() {
                 .hero-card {
                     background: var(--card-bg);
                     border-radius: var(--radius-xl);
-                    padding: var(--spacing-xl);
+                    padding: var(--spacing-md);
                     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
                     width: 100%;
-                    max-width: 400px;
+                    max-width: 1000px;
                     position: relative;
                     transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
                     transition: transform var(--transition-slow);

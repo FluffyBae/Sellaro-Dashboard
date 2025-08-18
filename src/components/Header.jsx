@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation.jsx';
+import  LogoBlack  from '../../assets/logo-sellaro.svg'
+import  LogoWhite  from '../../assets/logo-sellaro-white.svg'
 
 function Header() {
     const { t, language, setLanguage, theme, toggleTheme } = useTranslation();
@@ -30,14 +32,14 @@ function Header() {
         setIsMobileMenuOpen(false);
     };
 
+
     return (
         <header className={`header ${isScrolled ? 'scrolled' : ''}`} id="header">
             <div className="container">
                 <div className="header-content">
                     <div className="logo">
-                        <img src="/assets/logo.svg" alt="Sellaro.id" className="logo-img" />
+                        <img src={theme === 'light' ? LogoBlack : LogoWhite} className="logo-img" />
                     </div>
-                    
                     {/* Navigation */}
                     <nav className="nav">
                         <a href="#hero" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>
@@ -285,11 +287,10 @@ function Header() {
                 .mobile-menu-btn:hover {
                     border-color: var(--primary-color);
                 }
-
                 .mobile-nav {
-                    display: flex;
+                    display: none;
                     flex-direction: column;
-                    background: var(--card-bg);
+                    //background: var(--card-bg);
                     border-top: 1px solid var(--border-color);
                     padding: var(--spacing-md) 0;
                     transform: translateY(-100%);
@@ -299,6 +300,7 @@ function Header() {
                 }
 
                 .mobile-nav.active {
+                    display: flex;
                     transform: translateY(0);
                     opacity: 1;
                     visibility: visible;
@@ -306,9 +308,33 @@ function Header() {
 
                 @media (min-width: 1024px) {
                     .mobile-nav {
-                        display: none;
+                        display: none !important;
                     }
                 }
+
+                //.mobile-nav {
+                //    display: flex;
+                //    flex-direction: column;
+                //    background: var(--card-bg);
+                //    border-top: 1px solid var(--border-color);
+                //    padding: var(--spacing-md) 0;
+                //    transform: translateY(-100%);
+                //    opacity: 0;
+                //    visibility: hidden;
+                //    transition: all var(--transition-normal);
+                //}
+                //
+                //.mobile-nav.active {
+                //    transform: translateY(0);
+                //    opacity: 1;
+                //    visibility: visible;
+                //}
+
+                //@media (min-width: 1024px) {
+                //    .mobile-nav {
+                //        display: none;
+                //    }
+                //}
 
                 .mobile-nav-link {
                     color: var(--text-color);

@@ -32,7 +32,7 @@
 .dark-theme {
     --bg-color: var(--dark-bg);
     --text-color: var(--dark-text);
-    --card-bg: #1A1F2E;
+    --card-bg: #111111;
     --border-color: #2D3748;
     --shadow: rgba(0, 0, 0, 0.3);
 }

@@ -1,11 +1,15 @@
 import React from 'react';
 import { useTranslation } from '../hooks/useTranslation.jsx';
+import Client1 from '../../assets/client1.png'
+import Client2 from '../../assets/client2.png'
+import Client3 from '../../assets/client3.png'
+import Client4 from '../../assets/client4.png'
 
 function Clients() {
     const { t } = useTranslation();
 
     const clients = [
-        'Tokopedia', 'Bukalapak', 'Blibli', 'JD.id', 'Lazada', 'Zalora'
+        Client1, Client3, Client4
     ];
 
     return (
@@ -17,9 +21,10 @@ function Clients() {
                 <div className="clients-grid">
                     {clients.map((client, index) => (
                         <div key={index} className="client-card">
-                            <div className="client-logo">
-                                {client}
-                            </div>
+                            {/*<div className="client-logo">*/}
+                            {/*    {client}*/}
+                            {/*</div>*/}
+                            <img className="client-logo" src={client} alt="" />
                         </div>
                     ))}
                 </div>
@@ -42,6 +47,7 @@ function Clients() {
 
                 .clients-grid {
                     display: grid;
+                    align-items: center;
                     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
                     gap: var(--spacing-lg);
                     margin-bottom: var(--spacing-xl);
@@ -49,13 +55,13 @@ function Clients() {
 
                 @media (min-width: 768px) {
                     .clients-grid {
-                        grid-template-columns: repeat(3, 1fr);
+                        grid-template-columns: repeat(2, 1fr);
                     }
                 }
 
                 @media (min-width: 1024px) {
                     .clients-grid {
-                        grid-template-columns: repeat(6, 1fr);
+                        grid-template-columns: repeat(3, 1fr);
                     }
                 }
 
@@ -64,6 +70,8 @@ function Clients() {
                     border-radius: var(--radius-lg);
                     padding: var(--spacing-lg);
                     text-align: center;
+                    height: 150px;
+                    width: 100%;
                     transition: all var(--transition-normal);
                     border: 1px solid var(--border-color);
                 }
@@ -79,6 +87,8 @@ function Clients() {
                     font-weight: 600;
                     color: var(--text-color);
                     opacity: 0.8;
+                    height: 100%;
+                    width: auto;
                     transition: opacity var(--transition-fast);
                 }
 

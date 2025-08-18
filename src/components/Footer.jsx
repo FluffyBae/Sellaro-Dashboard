@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation.jsx';
+import LogoBlack from "../../assets/logo-sellaro.svg";
+import LogoWhite from "../../assets/logo-sellaro-white.svg";
 
 function Footer() {
-    const { t } = useTranslation();
+    const { t, language, setLanguage, theme, toggleTheme } = useTranslation();
 
     useEffect(() => {
         if (window.feather) {
@@ -16,7 +18,7 @@ function Footer() {
                 <div className="footer-content">
                     <div className="footer-main">
                         <div className="footer-brand">
-                            <img src="/assets/logo.svg" alt="Sellaro.id" className="footer-logo" />
+                            <img src={theme === 'light' ? LogoBlack : LogoWhite} alt="Sellaro.id" className="footer-logo" />
                             <p className="footer-description">
                                 Tingkatkan penjualan Shopee Anda dengan strategi AI yang cerdas dan solusi yang disesuaikan.
                             </p>
@@ -28,41 +30,41 @@ function Footer() {
                                 <i data-feather="mail"></i>
                                 <span>hello@sellaro.id</span>
                             </div>
-                            <div className="contact-item">
-                                <i data-feather="phone"></i>
-                                <span>+62 812-3456-7890</span>
-                            </div>
+                            {/*<div className="contact-item">*/}
+                            {/*    <i data-feather="phone"></i>*/}
+                            {/*    <span>+62 812-3456-7890</span>*/}
+                            {/*</div>*/}
                             <div className="contact-item">
                                 <i data-feather="map-pin"></i>
                                 <span>Jakarta, Indonesia</span>
                             </div>
                         </div>
                         
-                        <div className="footer-social">
-                            <h4 className="footer-title">Ikuti Kami</h4>
-                            <div className="social-links">
-                                <a href="#" className="social-link">
-                                    <i data-feather="instagram"></i>
-                                </a>
-                                <a href="#" className="social-link">
-                                    <i data-feather="twitter"></i>
-                                </a>
-                                <a href="#" className="social-link">
-                                    <i data-feather="linkedin"></i>
-                                </a>
-                                <a href="#" className="social-link">
-                                    <i data-feather="youtube"></i>
-                                </a>
-                            </div>
-                        </div>
+                        {/*<div className="footer-social">*/}
+                        {/*    <h4 className="footer-title">Ikuti Kami</h4>*/}
+                        {/*    <div className="social-links">*/}
+                        {/*        <a href="#" className="social-link">*/}
+                        {/*            <i data-feather="instagram"></i>*/}
+                        {/*        </a>*/}
+                        {/*        <a href="#" className="social-link">*/}
+                        {/*            <i data-feather="twitter"></i>*/}
+                        {/*        </a>*/}
+                        {/*        <a href="#" className="social-link">*/}
+                        {/*            <i data-feather="linkedin"></i>*/}
+                        {/*        </a>*/}
+                        {/*        <a href="#" className="social-link">*/}
+                        {/*            <i data-feather="youtube"></i>*/}
+                        {/*        </a>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </div>
                     
                     <div className="footer-bottom">
-                        <p>&copy; 2024 Sellaro.id. All rights reserved.</p>
-                        <div className="footer-links">
-                            <a href="#">Privacy Policy</a>
-                            <a href="#">Terms of Service</a>
-                        </div>
+                        <p>&copy; 2025 Sellaro.id. All rights reserved.</p>
+                        {/*<div className="footer-links">*/}
+                        {/*    <a href="#">Privacy Policy</a>*/}
+                        {/*    <a href="#">Terms of Service</a>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>
@@ -94,13 +96,13 @@ function Footer() {
 
                 .footer-brand {
                     display: flex;
+                    align-items: start;
                     flex-direction: column;
                     gap: var(--spacing-lg);
                 }
 
                 .footer-logo {
                     height: 40px;
-                    width: auto;
                 }
 
                 .footer-description {

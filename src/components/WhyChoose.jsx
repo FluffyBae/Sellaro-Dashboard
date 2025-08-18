@@ -12,7 +12,7 @@ function WhyChoose() {
 
     const features = [
         {
-            icon: 'brain',
+            icon: 'loader',
             title: t('feature1-title'),
             description: t('feature1-desc')
         },
