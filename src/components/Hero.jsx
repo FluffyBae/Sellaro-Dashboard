@@ -17,12 +17,7 @@ function Hero() {
     return (
         <section className="hero" id="hero" style={{ position: 'relative', overflow: 'hidden' }}>
             <DarkVeilBackground 
-                speed={0.8}
-                hueShift={220}
-                noiseIntensity={0.2}
-                scanlineIntensity={0.05}
-                scanlineFrequency={0.3}
-                warpAmount={0.15}
+                speed={1.2}
             />
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 <div className="hero-content">
@@ -81,7 +76,10 @@ function Hero() {
             <style jsx>{`
                 .hero {
                     padding: 120px 0 80px;
-                    background: linear-gradient(135deg, var(--bg-color) 0%, rgba(4, 128, 254, 0.05) 100%);
+                    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(4, 128, 254, 0.1) 50%, rgba(11, 196, 238, 0.05) 100%);
+                    min-height: 100vh;
+                    display: flex;
+                    align-items: center;
                     overflow: hidden;
                     position: relative;
                 }
