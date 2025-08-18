@@ -36,7 +36,7 @@ function Header() {
             <div className="container">
                 <div className="header-content">
                     <div className="logo">
-                        <img src={LogoBlack} alt="Sellaro Logo" className="logo-img" />
+                        <img src={LogoBlack} alt="Sellaro Logo" className="logo-img" style={{filter: 'brightness(0) invert(1)'}} />
                     </div>
                     
                     {/* Navigation */}
