@@ -267,40 +267,73 @@
             100% { transform: scale(1); }
         }
 
-        @keyframes confetti {
-            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        @keyframes confettiBurstLeft {
+            0% { 
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+                scale: 0.8;
+            }
+            20% {
+                opacity: 1;
+                scale: 1;
+            }
+            100% { 
+                transform: translate(var(--x-distance), var(--y-distance)) rotate(720deg);
+                opacity: 0;
+                scale: 0.3;
+            }
         }
 
-        .confetti {
+        @keyframes confettiBurstRight {
+            0% { 
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+                scale: 0.8;
+            }
+            20% {
+                opacity: 1;
+                scale: 1;
+            }
+            100% { 
+                transform: translate(var(--x-distance), var(--y-distance)) rotate(-720deg);
+                opacity: 0;
+                scale: 0.3;
+            }
+        }
+
+        .confetti-burst {
             position: fixed;
-            width: 8px;
-            height: 8px;
-            background: var(--primary-color);
-            animation: confetti 4s ease-in-out infinite;
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
             pointer-events: none;
-            border-radius: 2px;
+            z-index: 9999;
         }
 
-        .confetti:nth-child(odd) {
-            background: var(--secondary-color);
-            width: 6px;
-            height: 6px;
-            animation-duration: 3.5s;
+        .confetti-left {
+            bottom: 50px;
+            left: 50px;
+            animation: confettiBurstLeft 3s ease-out forwards;
         }
 
-        .confetti:nth-child(3n) {
-            background: rgba(139, 92, 246, 0.8);
-            width: 10px;
-            height: 10px;
-            animation-duration: 4.5s;
+        .confetti-right {
+            bottom: 50px;
+            right: 50px;
+            animation: confettiBurstRight 3s ease-out forwards;
         }
 
-        .confetti:nth-child(4n) {
-            background: rgba(255, 255, 255, 0.6);
-            width: 4px;
-            height: 4px;
-            animation-duration: 3.8s;
+        /* Confetti colors and variations */
+        .confetti-blue { background: var(--primary-color); }
+        .confetti-cyan { background: var(--secondary-color); }
+        .confetti-purple { background: rgba(139, 92, 246, 1); }
+        .confetti-white { background: rgba(255, 255, 255, 0.9); }
+        .confetti-yellow { background: #fbbf24; }
+        .confetti-pink { background: #f472b6; }
+        .confetti-green { background: #34d399; }
+
+        .hidden {
+            opacity: 0;
+            visibility: hidden;
         }
 
         @media (max-width: 768px) {
@@ -358,16 +391,8 @@
 </head>
 <body>
     <div class="success-page">
-        <!-- Confetti Animation -->
-        <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="confetti" style="left: 20%; animation-delay: 0.5s;"></div>
-        <div class="confetti" style="left: 30%; animation-delay: 1s;"></div>
-        <div class="confetti" style="left: 40%; animation-delay: 1.5s;"></div>
-        <div class="confetti" style="left: 50%; animation-delay: 2s;"></div>
-        <div class="confetti" style="left: 60%; animation-delay: 2.5s;"></div>
-        <div class="confetti" style="left: 70%; animation-delay: 3s;"></div>
-        <div class="confetti" style="left: 80%; animation-delay: 3.5s;"></div>
-        <div class="confetti" style="left: 90%; animation-delay: 4s;"></div>
+        <!-- Confetti Burst Container -->
+        <div id="confetti-container" class="hidden"></div>
 
         <div class="success-container">
             <div class="success-content">
@@ -461,6 +486,67 @@
         // Set customer email from localStorage
         const customerEmail = localStorage.getItem('customerEmail') || 'customer@example.com';
         document.getElementById('email').value = customerEmail;
+
+        // Confetti burst animation
+        function createConfettiBurst(side, burstNumber) {
+            const container = document.getElementById('confetti-container');
+            const colors = ['confetti-blue', 'confetti-cyan', 'confetti-purple', 'confetti-white', 'confetti-yellow', 'confetti-pink', 'confetti-green'];
+            const particleCount = 25; // particles per burst
+            
+            for (let i = 0; i < particleCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = `confetti-burst confetti-${side} ${colors[Math.floor(Math.random() * colors.length)]}`;
+                
+                // Random size variation
+                const size = Math.random() * 8 + 6; // 6-14px
+                confetti.style.width = size + 'px';
+                confetti.style.height = size + 'px';
+                
+                // Calculate random trajectory
+                let xDistance, yDistance;
+                if (side === 'left') {
+                    xDistance = Math.random() * 400 + 200; // 200-600px right
+                    yDistance = -(Math.random() * 300 + 200); // 200-500px up
+                } else {
+                    xDistance = -(Math.random() * 400 + 200); // 200-600px left
+                    yDistance = -(Math.random() * 300 + 200); // 200-500px up
+                }
+                
+                confetti.style.setProperty('--x-distance', xDistance + 'px');
+                confetti.style.setProperty('--y-distance', yDistance + 'px');
+                
+                // Slight delay for each particle
+                confetti.style.animationDelay = (Math.random() * 0.5) + 's';
+                confetti.style.animationDuration = (Math.random() * 1.5 + 2.5) + 's';
+                
+                container.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    if (confetti.parentNode) {
+                        confetti.parentNode.removeChild(confetti);
+                    }
+                }, 4000);
+            }
+        }
+
+        // Trigger confetti bursts on page load
+        window.addEventListener('load', () => {
+            const container = document.getElementById('confetti-container');
+            container.classList.remove('hidden');
+            
+            // First burst immediately
+            setTimeout(() => {
+                createConfettiBurst('left', 1);
+                createConfettiBurst('right', 1);
+            }, 500);
+            
+            // Second burst after delay
+            setTimeout(() => {
+                createConfettiBurst('left', 2);
+                createConfettiBurst('right', 2);
+            }, 1500);
+        });
     </script>
 </body>
 </html>
