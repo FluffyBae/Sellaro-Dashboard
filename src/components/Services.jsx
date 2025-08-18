@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation.jsx';
-import DarkVeil from './DarkVeil';
 
 function Services() {
     const { t } = useTranslation();
@@ -45,17 +44,8 @@ function Services() {
     ];
 
     return (
-        <section className="services" id="services" style={{ position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
-                <DarkVeil 
-                    speed={0.6}
-                    hueShift={240}
-                    noiseIntensity={0.05}
-                    scanlineIntensity={0.02}
-                    warpAmount={0.1}
-                />
-            </div>
-            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <section className="services" id="services">
+            <div className="container">
                 <h2 className="section-title text-center">
                     {t('services-title')}
                 </h2>

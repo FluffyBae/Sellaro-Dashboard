@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTranslation } from '../hooks/useTranslation.jsx';
-import FullWebWhite from '../../assets/web-full.png'
-import FullWebDark from '../../assets/web-full-dark.png'
-import DarkVeil from './DarkVeil';
+import  FullWebWhite  from '../../assets/web-full.png'
+import  FullWebDark  from '../../assets/web-full-dark.png'
 
 function Hero() {
     const { t, language, setLanguage, theme, toggleTheme } = useTranslation();
@@ -15,16 +14,8 @@ function Hero() {
     };
 
     return (
-        <section className="hero" id="hero" style={{ position: 'relative', overflow: 'hidden' }}>
-            <DarkVeil 
-                speed={0.8}
-                hueShift={220}
-                noiseIntensity={0.1}
-                scanlineIntensity={0.05}
-                scanlineFrequency={0.2}
-                warpAmount={0.15}
-            />
-            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <section className="hero" id="hero">
+            <div className="container">
                 <div className="hero-content">
                     <div className="hero-text">
                         <h1 className="hero-title">
@@ -81,10 +72,7 @@ function Hero() {
             <style jsx>{`
                 .hero {
                     padding: 120px 0 80px;
-                    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(4, 128, 254, 0.1) 50%, rgba(11, 196, 238, 0.05) 100%);
-                    min-height: 100vh;
-                    display: flex;
-                    align-items: center;
+                    background: linear-gradient(135deg, var(--bg-color) 0%, rgba(4, 128, 254, 0.05) 100%);
                     overflow: hidden;
                     position: relative;
                 }
