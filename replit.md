@@ -11,11 +11,12 @@ Preferred communication style: Simple, everyday language.
 ## System Architecture
 
 ### Frontend Architecture
-The application follows a traditional static website architecture with vanilla HTML, CSS, and JavaScript. The design emphasizes simplicity and performance:
+The application is built as a modern React-based single page application with enhanced visual effects and interactivity:
 
-- **Single Page Application (SPA)**: All content is contained within a single HTML file with multiple sections
+- **React Components**: Modular component architecture with hooks for state management
+- **Dynamic Backgrounds**: CSS-animated Dark Veil background effects in Hero, Services, and Packages sections
 - **Component-based CSS**: Modular CSS structure using CSS custom properties for theme management
-- **Progressive Enhancement**: Core functionality works without JavaScript, with JavaScript enhancing the user experience
+- **Interactive Elements**: Enhanced user experience with animated backgrounds and smooth transitions
 
 ### Design System
 - **Theme Management**: CSS custom properties enable seamless dark/light theme switching
@@ -38,6 +39,8 @@ The application follows a traditional static website architecture with vanilla H
 - **Font Loading**: Preconnected Google Fonts with display=swap for better loading performance
 - **Icon System**: Feather Icons loaded via CDN for consistent iconography
 - **CSS Architecture**: Custom properties for efficient theme switching and maintenance
+- **Animated Backgrounds**: CSS-only Dark Veil background effects with hardware acceleration for smooth performance
+- **React Optimization**: Efficient component rendering with proper hooks usage
 
 ## External Dependencies
 
@@ -58,3 +61,10 @@ The application follows a traditional static website architecture with vanilla H
 - **Local Assets**: Logo and client images stored locally in assets directory
 - **Image Strategy**: Placeholder approach mentioned for AI/tech-style images matching section context
 - **File Structure**: Organized asset directory for scalable image management
+- **Background Effects**: DarkVeilBackground component providing CSS-animated layers for visual enhancement
+
+## Recent Changes (August 18, 2025)
+- **Enhanced Visual Effects**: Implemented Dark Veil background animation inspired by ReactBits design
+- **Multi-section Integration**: Added animated backgrounds to Hero, Services, and Packages sections
+- **Performance Optimization**: Used CSS-only animations instead of WebGL for better compatibility
+- **Color Scheme Integration**: Customized effect colors to match Sellaro brand (primary blue #0480FE, secondary cyan #0BC4EE)

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation.jsx';
 import PaymentModal from "./PaymentModal";
-import  LogoBlack  from '../../assets/logo-sellaro.svg'
-import  LogoWhite  from '../../assets/logo-sellaro-white.svg'
+import LogoBlack from '../../assets/logo-sellaro.svg'
+import LogoWhite from '../../assets/logo-sellaro-white.svg'
 import ErrorModal from "./ErrorModal";
+import DarkVeilBackground from './DarkVeilBackground';
 
 function Packages() {
     const { t } = useTranslation();
@@ -77,8 +78,12 @@ function Packages() {
     }
 
     return (
-        <section className="packages" id="packages">
-            <div className="container">
+        <section className="packages" id="packages" style={{ position: 'relative', overflow: 'hidden' }}>
+            <DarkVeilBackground 
+                speed={0.5}
+                className="packages-background"
+            />
+            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 <h2 className="section-title text-center">
                     {t('packages-title')}
                 </h2>
