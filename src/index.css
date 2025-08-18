@@ -350,6 +350,18 @@ body::before {
     z-index: -1;
 }
 
+.new-hero-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
 /* Hero Section Styles - Full Height with Enhanced Visual Appeal */
 .hero {
     min-height: 100vh;
@@ -357,6 +369,9 @@ body::before {
     align-items: center;
     justify-content: center;
     position: relative;
+    /*top: 0;*/
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
     overflow: hidden;
     padding: var(--spacing-xl) 0;
 }
@@ -369,9 +384,9 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        radial-gradient(circle at 30% 40%, rgba(4, 128, 254, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 70% 60%, rgba(11, 196, 238, 0.1) 0%, transparent 50%);
+    /*background: */
+    /*    radial-gradient(circle at 30% 40%, rgba(4, 128, 254, 0.15) 0%, transparent 50%),*/
+    /*    radial-gradient(circle at 70% 60%, rgba(11, 196, 238, 0.1) 0%, transparent 50%);*/
     pointer-events: none;
     z-index: 0;
 }
