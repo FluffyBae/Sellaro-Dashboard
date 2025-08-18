@@ -143,7 +143,6 @@ const TranslationContext = createContext();
 
 export function TranslationProvider({ children }) {
     const [language, setLanguage] = useState('id');
-    const [theme, setTheme] = useState('light');
 
     const t = (key) => {
         return translations[language][key] || key;
@@ -154,18 +153,10 @@ export function TranslationProvider({ children }) {
         document.documentElement.lang = lang;
     };
 
-    const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-        document.documentElement.className = `${newTheme}-theme`;
-    };
-
     return (
         <TranslationContext.Provider value={{ 
             language, 
             setLanguage: switchLanguage, 
-            theme, 
-            toggleTheme, 
             t 
         }}>
             {children}

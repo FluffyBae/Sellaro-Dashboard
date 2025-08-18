@@ -59,25 +59,16 @@
     --z-tooltip: 1070;
 }
 
-/* Dark theme overrides */
-:root.dark-theme {
-    --bg-color: var(--dark-bg);
-    --text-color: #FFFFFF;
-    --card-bg: rgba(25, 15, 45, 0.8);
-    --card-shadow: rgba(0, 0, 0, 0.5);
-    --border-color: rgba(255, 255, 255, 0.15);
-}
-
-/* Light theme adjustments for new background */
+/* Global dark theme - no switching */
 :root {
-    /* Override light theme for better visibility on purple background */
+    --bg-color: var(--dark-bg);
     --text-color: #FFFFFF;
     --card-bg: rgba(255, 255, 255, 0.1);
     --card-shadow: rgba(0, 0, 0, 0.3);
     --border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Floating Glass Header Styles */
+/* Light Theme Header - Floating Glass */
 .glass-header {
     position: fixed;
     top: var(--spacing-md);
@@ -85,32 +76,22 @@
     transform: translateX(-50%);
     width: calc(100% - 2rem);
     max-width: 1200px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 50px;
     z-index: var(--z-fixed);
     transition: all var(--transition-normal);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .glass-header.scrolled {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.15);
-}
-
-:root.dark-theme .glass-header {
-    background: rgba(15, 10, 35, 0.8);
-    border-color: rgba(255, 255, 255, 0.08);
-}
-
-:root.dark-theme .glass-header.scrolled {
-    background: rgba(15, 10, 35, 0.9);
-    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .header-content {
@@ -151,8 +132,9 @@
     }
 }
 
+/* Light theme navigation for header */
 .nav-link {
-    color: var(--text-color);
+    color: #1f2937;
     text-decoration: none;
     font-weight: 500;
     font-size: var(--font-size-sm);
@@ -165,7 +147,7 @@
 
 .nav-link:hover {
     color: var(--primary-color);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
@@ -229,7 +211,7 @@
     border-radius: calc(var(--radius-lg) - 4px);
     font-size: var(--font-size-xs);
     font-weight: 500;
-    color: var(--text-color);
+    color: #1f2937;
     cursor: pointer;
     transition: all var(--transition-fast);
     min-width: 32px;
@@ -356,16 +338,7 @@ body {
     color: #FFFFFF;
 }
 
-:root.dark-theme body {
-    background: linear-gradient(135deg, 
-        #0f0a23 0%, 
-        #1a0f35 25%, 
-        #2d1b69 50%, 
-        #1a0f35 75%, 
-        #0f0a23 100%);
-    background-attachment: fixed;
-    color: #FFFFFF;
-}
+/* Remove dark theme specific body styling */
 
 /* Add floating particles effect for background */
 body::before {
@@ -727,14 +700,73 @@ body::before {
     transform: translateY(-2px);
 }
 
-:root.dark-theme .glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
+/* Modal Styles - Solid Color */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
 }
 
-:root.dark-theme .glass-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #1a0933;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9) translateY(20px);
+    transition: all var(--transition-normal);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+/* Disable body scroll when modal is open */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Footer - Light Theme Style */
+footer {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1f2937;
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+    margin-top: var(--spacing-4xl);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+footer h3 {
+    color: #1f2937;
+    margin-bottom: var(--spacing-lg);
+}
+
+footer p, footer a {
+    color: #4b5563;
+}
+
+footer a:hover {
+    color: var(--primary-color);
 }
 
 /* Gradient text effect */

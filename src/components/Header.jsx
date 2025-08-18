@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation.jsx';
 import LogoBlack from '../../assets/logo-sellaro.svg';
-import LogoWhite from '../../assets/logo-sellaro-white.svg';
 
 function Header() {
-    const { t, language, setLanguage, theme, toggleTheme } = useTranslation();
+    const { t, language, setLanguage } = useTranslation();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -18,11 +17,11 @@ function Header() {
     }, []);
 
     useEffect(() => {
-        // Update Feather icons when component mounts or theme changes
+        // Update Feather icons when component mounts
         if (window.feather) {
             window.feather.replace();
         }
-    }, [theme]);
+    }, []);
 
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
@@ -37,7 +36,7 @@ function Header() {
             <div className="container">
                 <div className="header-content">
                     <div className="logo">
-                        <img src={theme === 'light' ? LogoBlack : LogoWhite} alt="Sellaro Logo" className="logo-img" />
+                        <img src={LogoBlack} alt="Sellaro Logo" className="logo-img" />
                     </div>
                     
                     {/* Navigation */}
@@ -82,11 +81,7 @@ function Header() {
                             </button>
                         </div>
                         
-                        {/* Theme Toggle */}
-                        <button className="theme-toggle glass-card" onClick={toggleTheme}>
-                            <i data-feather="sun" className={`theme-icon ${theme === 'light' ? 'light-icon' : ''}`}></i>
-                            <i data-feather="moon" className={`theme-icon ${theme === 'dark' ? 'dark-icon' : ''}`}></i>
-                        </button>
+
                         
                         {/* Mobile Menu Button */}
                         <button 
