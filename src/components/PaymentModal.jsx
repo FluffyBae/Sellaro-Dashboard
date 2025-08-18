@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from '../hooks/TranslationProvider.jsx';
+import { useTranslation } from '../hooks/useTranslation.jsx';
 
 function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
     const { t } = useTranslation();
@@ -65,40 +65,40 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 backdrop-blur-sm" onClick={() => setIsOpen(false)}>
-            <div className="bg-slate-800/95 backdrop-blur-20 border border-white/10 rounded-24 w-full max-w-md overflow-hidden shadow-modal animate-modal-slide-in relative" onClick={(e) => e.stopPropagation()}>
+        <div className="payment-modal-overlay" onClick={() => setIsOpen(false)}>
+            <div className="payment-modal" onClick={(e) => e.stopPropagation()}>
                 {/* Modal Header */}
-                <div className="text-center pt-10 px-8 pb-6 relative">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-20 flex items-center justify-center mx-auto mb-5 shadow-button">
-                        <i data-feather="credit-card" className="w-7 h-7 text-white"></i>
+                <div className="modal-header">
+                    <div className="modal-icon">
+                        <i data-feather="credit-card"></i>
                     </div>
-                    <h2 className="text-white text-3xl font-bold font-heading mb-2 leading-tight">{t('payment-title')}</h2>
-                    <p className="text-white/60 text-base m-0 leading-relaxed">Mulai perjalanan bisnis Anda dengan Sellaro</p>
+                    <h2>{t('payment-title')}</h2>
+                    <p className="modal-subtitle">Mulai perjalanan bisnis Anda dengan Sellaro</p>
                     <button 
-                        className="absolute top-6 right-6 w-9 h-9 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-white/10 hover:border-white/20"
+                        className="modal-close"
                         onClick={() => setIsOpen(false)}
                     >
-                        <i data-feather="x" className="w-4 h-4 text-white/70"></i>
+                        <i data-feather="x"></i>
                     </button>
                 </div>
 
                 {/* Pricing Display */}
-                <div className="px-8 py-6 border-b border-white/8">
-                    <div className="flex items-baseline justify-center mb-6">
-                        <span className="text-4xl font-bold text-white">Rp 360.000</span>
-                        <span className="text-white/60 ml-2">/bulan</span>
+                <div className="pricing-section">
+                    <div className="price-display">
+                        <span className="price-amount">Rp 360.000</span>
+                        <span className="price-period">/bulan</span>
                     </div>
-                    <div className="flex flex-wrap gap-2 justify-center">
-                        <span className="flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-3 py-1.5 rounded-full text-sm">
-                            <i data-feather="check" className="w-3 h-3"></i>
+                    <div className="package-features">
+                        <span className="feature-badge">
+                            <i data-feather="check"></i>
                             AI Complete Package
                         </span>
-                        <span className="flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-3 py-1.5 rounded-full text-sm">
-                            <i data-feather="check" className="w-3 h-3"></i>
+                        <span className="feature-badge">
+                            <i data-feather="check"></i>
                             Dashboard Premium
                         </span>
-                        <span className="flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-3 py-1.5 rounded-full text-sm">
-                            <i data-feather="check" className="w-3 h-3"></i>
+                        <span className="feature-badge">
+                            <i data-feather="check"></i>
                             Rp50k AI Credit
                         </span>
                     </div>
