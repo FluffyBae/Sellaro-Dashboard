@@ -67,44 +67,60 @@
     --border-color: #2A2F3E;
 }
 
-/* Glass Morphism Header Styles */
+/* Floating Glass Header Styles */
 .glass-header {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: var(--spacing-md);
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    max-width: 1200px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-left: none;
-    border-right: none;
+    border-radius: 50px;
     z-index: var(--z-fixed);
     transition: all var(--transition-normal);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .glass-header.scrolled {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 :root.dark-theme .glass-header {
     background: rgba(15, 10, 35, 0.8);
-    border-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.08);
 }
 
 :root.dark-theme .glass-header.scrolled {
     background: rgba(15, 10, 35, 0.9);
+    border-color: rgba(255, 255, 255, 0.12);
 }
 
 .header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-sm) var(--spacing-xl);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .glass-header {
+        width: calc(100% - 1rem);
+        border-radius: 40px;
+        top: var(--spacing-sm);
+    }
+    
+    .header-content {
+        padding: var(--spacing-sm) var(--spacing-lg);
+    }
 }
 
 .logo-img {
@@ -357,7 +373,7 @@ body::before {
 
 /* Hero Section Styles */
 .hero {
-    padding: 120px 0 80px;
+    padding: 140px 0 80px;
     position: relative;
     overflow: hidden;
 }
