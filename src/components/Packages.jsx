@@ -43,30 +43,25 @@ function Packages() {
     ];
 
     const handlePaymentSubmission = async formData => {
-        const res = await fetch('https://api.mayar.id/hl/v1/payment/create', {
+        const res = await fetch('https://api.sellaro.id/make-payment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${import.meta.env.VITE_PAYMENT_API_KEY}`
             },
             body: JSON.stringify({
                 name: formData.name,
                 email: formData.email,
-                amount: 368000,
-                mobile: formData.phone,
-                redirectUrl: "https://sellaro.id/successful-payment?email=" + formData.email + "&password=admin123",
-                description: "Pemabayaran Paket Sellaro.id, Nama: " + formData.name,
-                expiredAt: new Date(Date.now() + 15 * 60 * 1000).toISOString()
+                phone: formData.phone,
             })
         })
         .then(response => response.json())
         .then(data => {
-            if (data.statusCode === 200) {
-                window.location.href = data.data.link;
-            }
-            else {
-                setErrorModal(true);
-            }
+            // if (data.statusCode === 200) {
+            window.location.href = data.data.link;
+            // }
+            // else {
+            //     setErrorModal(true);
+            // }
         })
         .catch(error => {
             setErrorModal(true);
