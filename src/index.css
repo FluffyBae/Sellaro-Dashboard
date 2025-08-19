@@ -126,7 +126,7 @@
     .glass-header {
         width: calc(100vw - 0.5rem);
         max-width: calc(100vw - 0.5rem);
-        top: 0.25rem;
+        top: 0.5rem;
     }
     
     .header-content {
@@ -406,19 +406,19 @@ body::before {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: calc(70px + var(--spacing-lg)) 0 var(--spacing-xl) 0;
+    padding: 120px 0 var(--spacing-xl) 0;
 }
 
 @media (max-width: 768px) {
     .hero {
-        padding: 90px 0 var(--spacing-lg) 0;
+        padding: 110px 0 var(--spacing-lg) 0;
         min-height: 100vh;
     }
 }
 
 @media (max-width: 480px) {
     .hero {
-        padding: 80px 0 var(--spacing-md) 0;
+        padding: 100px 0 var(--spacing-md) 0;
         min-height: 100vh;
     }
 }
