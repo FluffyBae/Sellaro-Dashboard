@@ -1125,9 +1125,69 @@ p {
     border: 2px solid var(--border-color);
 }
 
+.btn-youtube {
+    background: #FF0000;
+    color: white;
+    box-shadow: 0 8px 32px rgba(255, 0, 0, 0.3);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    gap: var(--spacing-xs);
+}
+
+.btn-youtube:hover {
+    background: #CC0000;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(255, 0, 0, 0.4);
+}
+
+.youtube-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.tutorial-text {
+    font-weight: 500;
+}
+
 .btn-secondary:hover {
     border-color: var(--primary-color);
     color: var(--primary-color);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .tutorial-text {
+        display: none;
+    }
+    
+    .btn-youtube {
+        padding: var(--spacing-sm);
+        min-width: 52px;
+        aspect-ratio: 1;
+        justify-content: center;
+    }
+    
+    .hero-buttons {
+        gap: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-youtube {
+        padding: calc(var(--spacing-sm) * 0.8);
+        min-width: 48px;
+    }
+    
+    .hero-buttons {
+        gap: var(--spacing-xs);
+    }
 }
 
 /* Cards */
