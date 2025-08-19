@@ -36,7 +36,7 @@ function Hero() {
                                 <i data-feather="arrow-right"></i>
                             </button>
                             <a 
-                                href="#"
+                                href="https://youtu.be/HNMPATOZBlw"
                                 className="btn btn-youtube glass-card"
                                 aria-label="Tutorial Penggunaan Tools AI"
                             >
