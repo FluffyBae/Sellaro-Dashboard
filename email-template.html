@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran Berhasil - Sellaro.id</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body, table, td, a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        
+        table, td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        
+        img {
+            -ms-interpolation-mode: bicubic;
+            border: 0;
+            outline: none;
+            text-decoration: none;
+        }
+        
+        /* Main styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0B0F1A;
+            color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            width: 100% !important;
+        }
+        
+        .email-wrapper {
+            width: 100%;
+            background-color: #0B0F1A;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(4, 128, 254, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(11, 196, 238, 0.15) 0%, transparent 50%);
+            padding: 40px 20px;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(20, 20, 35, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            overflow: hidden;
+        }
+        
+        .email-header {
+            background: linear-gradient(90deg, #0480FE, #0BC4EE);
+            height: 4px;
+        }
+        
+        .email-content {
+            padding: 48px 40px;
+            text-align: center;
+        }
+        
+        .success-icon {
+            width: 96px;
+            height: 96px;
+            background: linear-gradient(135deg, #0480FE, #0BC4EE);
+            border-radius: 24px;
+            margin: 0 auto 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .success-icon::before {
+            content: "✓";
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+        }
+        
+        .success-title {
+            font-size: 44px;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+        
+        .success-message {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .credentials-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+        
+        .credentials-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        
+        .credential-item {
+            margin-bottom: 24px;
+        }
+        
+        .credential-label {
+            display: block;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .credential-value {
+            padding: 16px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #FFFFFF;
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+        }
+        
+        .action-buttons {
+            text-align: center;
+            margin-top: 32px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 18px 32px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            margin: 0 8px 16px;
+            min-width: 160px;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0480FE, #0BC4EE);
+            color: white;
+            border: 1px solid transparent;
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .footer-section {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 32px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-text {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 16px;
+        }
+        
+        .company-info {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.5;
+        }
+        
+        /* Mobile responsive */
+        @media only screen and (max-width: 600px) {
+            .email-wrapper {
+                padding: 20px 10px;
+            }
+            
+            .email-content {
+                padding: 32px 24px;
+            }
+            
+            .success-title {
+                font-size: 32px;
+            }
+            
+            .success-message {
+                font-size: 16px;
+            }
+            
+            .credentials-section {
+                padding: 24px;
+            }
+            
+            .btn {
+                display: block;
+                margin: 0 0 16px;
+                width: 100%;
+            }
+        }
+        
+        /* Outlook specific */
+        .outlook-spacer {
+            mso-hide: all;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-wrapper">
+        <div class="email-container">
+            <!-- Header gradient -->
+            <div class="email-header"></div>
+            
+            <!-- Main content -->
+            <div class="email-content">
+                <!-- Success icon -->
+                <div class="success-icon"></div>
+                
+                <!-- Success title -->
+                <h1 class="success-title">Pembayaran Berhasil!</h1>
+                
+                <!-- Success message -->
+                <p class="success-message">
+                    Terima kasih! Pembayaran Anda untuk paket AI Complete telah berhasil diproses. 
+                    Berikut adalah detail akses akun Anda:
+                </p>
+                
+                <!-- Credentials section -->
+                <div class="credentials-section">
+                    <h2 class="credentials-title">Detail Akun Anda</h2>
+                    
+                    <div class="credential-item">
+                        <label class="credential-label">Username</label>
+                        <div class="credential-value">user@sellaro.id</div>
+                    </div>
+                    
+                    <div class="credential-item">
+                        <label class="credential-label">Password</label>
+                        <div class="credential-value">••••••••••••</div>
+                    </div>
+                    
+                    <div class="credential-item">
+                        <label class="credential-label">URL Dashboard</label>
+                        <div class="credential-value">https://dashboard.sellaro.id</div>
+                    </div>
+                </div>
+                
+                <!-- Action buttons -->
+                <div class="action-buttons">
+                    <a href="https://dashboard.sellaro.id" class="btn btn-primary">
+                        Masuk ke Dashboard
+                    </a>
+                    <a href="https://sellaro.id" class="btn btn-secondary">
+                        Kembali ke Beranda
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="footer-section">
+                <p class="footer-text">
+                    Jika Anda mengalami kesulitan, silakan hubungi tim support kami di 
+                    <a href="mailto:support@sellaro.id" style="color: #0480FE;">support@sellaro.id</a>
+                </p>
+                
+                <div class="company-info">
+                    <strong>Sellaro.id</strong><br>
+                    Platform AI untuk Optimasi Penjualan Shopee<br>
+                    Jakarta, Indonesia<br><br>
+                    
+                    Email ini dikirim secara otomatis. Mohon tidak membalas email ini.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
