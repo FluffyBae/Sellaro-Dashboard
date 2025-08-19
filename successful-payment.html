@@ -393,6 +393,66 @@
             visibility: hidden;
         }
 
+        /* Loading animation styles */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0B0F1A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-overlay.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #0480FE;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 24px;
+        }
+
+        .loading-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .loading-subtext {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Hide main content initially */
+        .success-page {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .success-page.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (max-width: 768px) {
             .success-container {
                 padding: 1rem;
@@ -447,7 +507,14 @@
     </style>
 </head>
 <body>
-    <div class="success-page">
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader"></div>
+        <div class="loading-text">Memproses pembayaran...</div>
+        <div class="loading-subtext">Mohon tunggu sebentar</div>
+    </div>
+
+    <div class="success-page" id="successPage">
         <!-- Confetti Burst Container -->
         <div id="confetti-container" class="hidden"></div>
 
@@ -505,8 +572,29 @@
     </div>
 
     <script>
-        // Initialize Feather icons
-        feather.replace();
+        // Initialize page with loading
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const successPage = document.getElementById('successPage');
+            
+            // After 2 seconds, hide loading and show content
+            setTimeout(() => {
+                // Hide loading overlay
+                loadingOverlay.classList.add('fade-out');
+                
+                // Show main content
+                successPage.classList.add('show');
+                
+                // Start confetti after content is shown
+                setTimeout(() => {
+                    startGrandConfetti();
+                }, 300);
+                
+                // Initialize Feather icons after content is shown
+                feather.replace();
+                
+            }, 2000);
+        });
 
         // Copy to clipboard function
         function copyToClipboard(elementId) {
@@ -637,8 +725,8 @@
             });
         }
 
-        // Trigger grand celebration on page load
-        window.addEventListener('load', () => {
+        // Start grand confetti celebration
+        function startGrandConfetti() {
             const container = document.getElementById('confetti-container');
             const body = document.body;
             
@@ -648,23 +736,23 @@
             // First massive burst
             setTimeout(() => {
                 createGrandConfettiBurst(1);
-            }, 600);
+            }, 100);
             
             // Second even more massive burst
             setTimeout(() => {
                 createGrandConfettiBurst(2);
-            }, 2000);
+            }, 1500);
             
             // Third finale burst
             setTimeout(() => {
                 createGrandConfettiBurst(3);
-            }, 4000);
+            }, 3500);
             
             // Remove celebration class after effects
             setTimeout(() => {
                 body.classList.remove('celebration-active');
-            }, 8000);
-        });
+            }, 6000);
+        }
     </script>
 </body>
 </html>
