@@ -4,3 +4,10 @@ services:
     ports:
       - "80:5011"
     restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    external: true
+    name: production-app-network
