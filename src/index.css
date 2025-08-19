@@ -424,7 +424,7 @@ body::before {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 220px 0 var(--spacing-md) 0;
+        padding: 300px 0 var(--spacing-md) 0;
         min-height: 100vh;
     }
 }
