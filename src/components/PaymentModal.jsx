@@ -9,6 +9,11 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
         email: '',
         phone: ''
     });
+    const [errors, setErrors] = useState({
+        name: '',
+        email: '',
+        phone: ''
+    });
 
 
 
@@ -41,25 +46,91 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
     //     };
     // }, []);
 
-    const handleInputChange = (e) => {
-        if (!formData.name || !formData.email || !formData.phone) {
-            setIsDisabled(true);
-        } else {
-            setIsDisabled(false);
+    // Validation functions
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const validatePhone = (phone) => {
+        // Remove any spaces or dashes
+        const cleanPhone = phone.replace(/[\s-]/g, '');
+        
+        // Check if it starts with 08 or 62 and has at least 10 digits
+        const phoneRegex = /^(08|62)\d{8,}$/;
+        return phoneRegex.test(cleanPhone) && cleanPhone.length >= 10;
+    };
+
+    const validateForm = (data) => {
+        const newErrors = {};
+
+        // Name validation
+        if (!data.name.trim()) {
+            newErrors.name = 'Nama lengkap wajib diisi';
         }
+
+        // Email validation
+        if (!data.email.trim()) {
+            newErrors.email = 'Email wajib diisi';
+        } else if (!validateEmail(data.email)) {
+            newErrors.email = 'Format email tidak valid';
+        }
+
+        // Phone validation
+        if (!data.phone.trim()) {
+            newErrors.phone = 'Nomor telepon wajib diisi';
+        } else if (!validatePhone(data.phone)) {
+            newErrors.phone = 'Nomor telepon harus dimulai dengan 08 atau 62 dan minimal 10 digit';
+        }
+
+        return newErrors;
+    };
+
+    const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
+        const newFormData = {
+            ...formData,
             [name]: value
-        }));
+        };
+        
+        setFormData(newFormData);
+
+        // Clear errors for the current field
+        if (errors[name]) {
+            setErrors(prev => ({
+                ...prev,
+                [name]: ''
+            }));
+        }
+
+        // Check if form is valid for enabling/disabling submit button
+        const formErrors = validateForm(newFormData);
+        const hasErrors = Object.values(formErrors).some(error => error !== '');
+        const hasEmptyFields = !newFormData.name || !newFormData.email || !newFormData.phone;
+        
+        setIsDisabled(hasErrors || hasEmptyFields);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Here you would normally handle the payment processing
-        // setIsOpen(false);
+        // Validate form before submission
+        const formErrors = validateForm(formData);
+        
+        if (Object.values(formErrors).some(error => error !== '')) {
+            setErrors(formErrors);
+            return;
+        }
+
+        // Clear any existing errors
+        setErrors({ name: '', email: '', phone: '' });
+
+        // Process payment (redirect to payment page)
+        onPaymentClick(formData);
+        
+        // Reset form and close modal
         setFormData({ name: '', email: '', phone: '' });
+        setIsOpen(false);
     };
 
     if (!isOpen) return null;
@@ -115,8 +186,10 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                                 placeholder={t('form-name')}
                                 value={formData.name}
                                 onChange={handleInputChange}
+                                className={errors.name ? 'error' : ''}
                                 required
                             />
+                            {errors.name && <span className="error-message">{errors.name}</span>}
                         </div>
                     </div>
                     
@@ -129,9 +202,10 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                                 placeholder={t('form-email')}
                                 value={formData.email}
                                 onChange={handleInputChange}
+                                className={errors.email ? 'error' : ''}
                                 required
                             />
-                            <i data-feather="mail" className="input-icon"></i>
+                            {errors.email && <span className="error-message">{errors.email}</span>}
                         </div>
                     </div>
 
@@ -144,9 +218,10 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                                 placeholder={t('form-phone')}
                                 value={formData.phone}
                                 onChange={handleInputChange}
+                                className={errors.phone ? 'error' : ''}
                                 required
                             />
-                            <i data-feather="phone" className="input-icon"></i>
+                            {errors.phone && <span className="error-message">{errors.phone}</span>}
                         </div>
                     </div>
 
@@ -358,6 +433,20 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                         border-color: var(--primary-color);
                         background: rgba(255, 255, 255, 0.05);
                         box-shadow: 0 0 0 3px rgba(4, 128, 254, 0.1);
+                    }
+
+                    .form-group input.error {
+                        border-color: #ef4444;
+                        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+                    }
+
+                    .error-message {
+                        display: block;
+                        color: #ef4444;
+                        font-size: 14px;
+                        margin-top: 8px;
+                        margin-left: 4px;
+                        font-weight: 500;
                     }
 
                     .input-icon {
