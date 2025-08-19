@@ -2,5 +2,5 @@ services:
   sellaro-landing:
     build: .
     ports:
-      - "80:80"
+      - "80:5011"
     restart: unless-stopped

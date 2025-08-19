@@ -2,14 +2,14 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-const PORT = 5000;
+const PORT = 5011;
 
 // Serve static files from current directory
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "dist")));
 
 // Route for home page
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "dist/index.html"));
 });
 
 // Route for successful payment page
