@@ -78,6 +78,10 @@ function Clients() {
                     width: 100%;
                     transition: all var(--transition-normal);
                     border: 1px solid var(--border-color);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
                 }
 
                 .client-card:hover {
@@ -91,8 +95,11 @@ function Clients() {
                     font-weight: 600;
                     color: var(--text-color);
                     opacity: 0.8;
-                    height: 100%;
+                    max-height: 80px;
+                    max-width: 100%;
                     width: auto;
+                    height: auto;
+                    object-fit: contain;
                     transition: opacity var(--transition-fast);
                 }
 

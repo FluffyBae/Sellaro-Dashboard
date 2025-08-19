@@ -405,7 +405,21 @@ body::before {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: var(--spacing-xl) 0;
+    padding: calc(80px + var(--spacing-xl)) 0 var(--spacing-xl) 0;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: calc(100px + var(--spacing-lg)) 0 var(--spacing-lg) 0;
+        min-height: calc(100vh - 60px);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: calc(90px + var(--spacing-md)) 0 var(--spacing-md) 0;
+        min-height: calc(100vh - 40px);
+    }
 }
 
 /* Enhanced background effects for hero */
