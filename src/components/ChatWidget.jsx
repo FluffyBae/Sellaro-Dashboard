@@ -188,9 +188,11 @@ function ChatWidget() {
                     right: var(--spacing-xl);
                     width: 350px;
                     height: 500px;
-                    background: var(--card-bg);
+                    background: rgba(20, 20, 35, 0.98);
+                    backdrop-filter: blur(20px);
+                    -webkit-backdrop-filter: blur(20px);
                     border-radius: var(--radius-xl);
-                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
                     display: flex;
                     flex-direction: column;
                     transform: translateY(100%) scale(0.8);
@@ -198,7 +200,7 @@ function ChatWidget() {
                     visibility: hidden;
                     transition: all var(--transition-normal);
                     z-index: var(--z-modal);
-                    border: 1px solid var(--border-color);
+                    border: 1px solid rgba(255, 255, 255, 0.15);
                 }
 
                 .chat-widget.open {
@@ -268,6 +270,7 @@ function ChatWidget() {
                     display: flex;
                     flex-direction: column;
                     gap: var(--spacing-md);
+                    background: rgba(255, 255, 255, 0.02);
                 }
 
                 .message {
@@ -299,9 +302,9 @@ function ChatWidget() {
                 }
 
                 .message.bot .message-content {
-                    background: var(--bg-color);
-                    color: var(--text-color);
-                    border: 1px solid var(--border-color);
+                    background: rgba(255, 255, 255, 0.1);
+                    color: rgba(255, 255, 255, 0.9);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
                     border-bottom-left-radius: var(--radius-sm);
                 }
 
@@ -346,19 +349,20 @@ function ChatWidget() {
 
                 .chat-quick-actions {
                     padding: var(--spacing-md) var(--spacing-lg);
-                    border-top: 1px solid var(--border-color);
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
                     display: flex;
                     flex-wrap: wrap;
                     gap: var(--spacing-xs);
+                    background: rgba(255, 255, 255, 0.02);
                 }
 
                 .quick-action-btn {
-                    background: var(--bg-color);
-                    border: 1px solid var(--border-color);
+                    background: rgba(255, 255, 255, 0.08);
+                    border: 1px solid rgba(255, 255, 255, 0.15);
                     border-radius: var(--radius-md);
                     padding: var(--spacing-xs) var(--spacing-sm);
                     font-size: var(--font-size-xs);
-                    color: var(--text-color);
+                    color: rgba(255, 255, 255, 0.8);
                     cursor: pointer;
                     transition: all var(--transition-fast);
                 }
@@ -370,21 +374,26 @@ function ChatWidget() {
 
                 .chat-input {
                     padding: var(--spacing-lg);
-                    border-top: 1px solid var(--border-color);
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
                     display: flex;
                     gap: var(--spacing-sm);
+                    background: rgba(255, 255, 255, 0.02);
                 }
 
                 .chat-input input {
                     flex: 1;
                     padding: var(--spacing-sm) var(--spacing-md);
-                    border: 1px solid var(--border-color);
+                    border: 1px solid rgba(255, 255, 255, 0.15);
                     border-radius: var(--radius-md);
-                    background: var(--bg-color);
-                    color: var(--text-color);
+                    background: rgba(255, 255, 255, 0.08);
+                    color: rgba(255, 255, 255, 0.9);
                     font-size: var(--font-size-sm);
                     outline: none;
                     transition: border-color var(--transition-fast);
+                }
+
+                .chat-input input::placeholder {
+                    color: rgba(255, 255, 255, 0.5);
                 }
 
                 .chat-input input:focus {
