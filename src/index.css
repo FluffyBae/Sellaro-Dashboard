@@ -558,8 +558,19 @@ body::before {
 
 @media (max-width: 768px) {
     .hero-visual {
-        order: -1; /* Show visual before text on mobile */
-        margin-bottom: var(--spacing-lg);
+        display: none; /* Hide visual on mobile to save space and prevent overlap */
+    }
+    
+    .hero {
+        min-height: 120vh; /* Increase height on mobile for better spacing */
+        padding: 140px 0 var(--spacing-4xl) 0;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr; /* Single column layout */
+        text-align: center;
+        justify-items: center;
+        gap: var(--spacing-2xl);
     }
 }
 
@@ -1309,9 +1320,13 @@ p {
     }
     
     .hero {
-        min-height: auto;
-        padding: 120px 0 var(--spacing-3xl) 0;
+        min-height: 130vh; /* Even more height on small screens */
+        padding: 140px 0 var(--spacing-4xl) 0;
         overflow: visible;
+    }
+    
+    .hero-visual {
+        display: none !important; /* Ensure image is hidden on small screens */
     }
 }
 
