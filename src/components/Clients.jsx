@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from '../hooks/useTranslation.jsx';
 import Client1 from '../../assets/client1.png'
 import Client2 from '../../assets/client2.png'
-import Client3 from '../../assets/client3.png'
+import Client3 from '../../assets/hotto-logo.webp'
 import Client4 from '../../assets/client4.png'
 
 function Clients() {
