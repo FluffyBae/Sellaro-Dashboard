@@ -67,14 +67,15 @@ const translations = {
         'form-name': 'Nama Lengkap',
         'form-email': 'Email',
         'form-phone': 'Nomor Telepon',
-        'payment-btn': 'Pembayaran'
+        'payment-btn': 'Pembayaran',
+        'tutorial-text': 'Tutorial Penggunaan Tools AI'
     },
     en: {
         'error-message': 'An unexpected error occurred. Please try again later.',
         'error-title': 'An Error Occurred',
         'hero-title': 'Boost Your Shopee Sales, Effortlessly',
         'hero-subtitle': 'Sell More, Stress Less',
-        'hero-description': 'Boost your Shopee sales with smart AI strategies, deep data analysis, and solutions tailored to your business needs.',
+        'hero-description': 'Boost your Shopee sales with smart AI strategies and customized solutions.',
         'cta-button': 'Get Started',
         'clients-title': 'Our Clients',
         'clients-more': 'and 120+ more',
@@ -135,7 +136,8 @@ const translations = {
         'form-name': 'Full Name',
         'form-email': 'Email',
         'form-phone': 'Phone Number',
-        'payment-btn': 'Payment'
+        'payment-btn': 'Payment',
+        'tutorial-text': 'AI Tools Tutorial'
     }
 };
 
