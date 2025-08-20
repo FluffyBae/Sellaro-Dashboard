@@ -1249,10 +1249,12 @@ p {
     }
     
     .btn-youtube {
-        padding: var(--spacing-sm);
-        min-width: 52px;
-        aspect-ratio: 1;
+        padding: var(--spacing-sm) var(--spacing-md);
+        min-width: auto;
+        width: auto;
+        aspect-ratio: auto;
         justify-content: center;
+        font-size: var(--font-size-sm);
     }
     
     .hero-buttons {
@@ -1286,8 +1288,11 @@ p {
 
 @media (max-width: 480px) {
     .btn-youtube {
-        padding: calc(var(--spacing-sm) * 0.8);
-        min-width: 48px;
+        padding: var(--spacing-sm) var(--spacing-md);
+        min-width: auto;
+        width: auto;
+        max-width: 280px;
+        font-size: var(--font-size-sm);
     }
     
     .hero-buttons {
@@ -1303,14 +1308,19 @@ p {
     .btn,
     .btn-primary,
     .btn-youtube {
-        width: 100%;
+        width: auto;
         max-width: 280px;
         justify-content: center;
-        min-height: 52px;
-        font-size: var(--font-size-base);
+        min-height: 48px;
+        font-size: var(--font-size-sm);
         display: flex !important;
         visibility: visible !important;
         opacity: 1 !important;
+        padding: var(--spacing-sm) var(--spacing-lg);
+    }
+    
+    .btn-youtube {
+        padding: var(--spacing-sm) var(--spacing-md);
     }
     
     .hero-content {
