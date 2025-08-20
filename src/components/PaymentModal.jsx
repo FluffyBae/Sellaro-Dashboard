@@ -523,26 +523,97 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                         text-decoration: underline;
                     }
 
-                    @media (max-width: 480px) {
+                    @media (max-width: 768px) {
+                        .payment-modal-overlay {
+                            padding: 10px;
+                            align-items: flex-start;
+                            padding-top: 20px;
+                            overflow-y: auto;
+                        }
+
                         .payment-modal {
-                            margin: 20px;
-                            max-width: calc(100% - 40px);
+                            margin: 0;
+                            max-width: 100%;
+                            max-height: calc(100vh - 40px);
+                            overflow-y: auto;
                         }
                         
                         .modal-header {
-                            padding: 32px 24px 20px;
+                            padding: 20px 20px 16px;
+                        }
+
+                        .modal-icon {
+                            width: 48px;
+                            height: 48px;
+                            margin: 0 auto 12px;
+                        }
+
+                        .modal-icon i {
+                            width: 22px;
+                            height: 22px;
+                        }
+
+                        .modal-header h2 {
+                            font-size: 22px;
+                            margin: 0 0 6px 0;
+                        }
+
+                        .modal-subtitle {
+                            font-size: 14px;
                         }
                         
                         .pricing-section {
-                            padding: 0 24px 24px;
+                            padding: 0 20px 16px;
+                        }
+
+                        .price-amount {
+                            font-size: 28px;
+                        }
+
+                        .price-period {
+                            font-size: 16px;
+                        }
+
+                        .package-features {
+                            gap: 6px;
+                        }
+
+                        .feature-badge {
+                            padding: 4px 8px;
+                            font-size: 12px;
                         }
                         
                         .payment-form {
-                            padding: 24px;
+                            padding: 20px;
+                        }
+
+                        .form-row {
+                            margin-bottom: 16px;
+                        }
+
+                        .form-group input {
+                            height: 48px;
+                            font-size: 16px;
+                            padding: 0 16px;
+                        }
+
+                        .payment-submit {
+                            height: 48px;
+                            font-size: 15px;
+                            margin-top: 8px;
                         }
                         
                         .modal-footer {
-                            padding: 0 24px 24px;
+                            padding: 0 20px 20px;
+                        }
+
+                        .modal-footer p {
+                            font-size: 12px;
+                        }
+
+                        .error-message {
+                            font-size: 12px;
+                            margin-top: 6px;
                         }
                     }
                 `}</style>
