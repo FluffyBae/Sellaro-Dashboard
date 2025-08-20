@@ -67,7 +67,7 @@ const translations = {
         'form-name': 'Nama Lengkap',
         'form-email': 'Email',
         'form-phone': 'Nomor Telepon',
-        'payment-btn': 'PRESALE - Mulai Berlangganan'
+        'payment-btn': 'Pembayaran'
     },
     en: {
         'error-message': 'An unexpected error occurred. Please try again later.',
@@ -135,7 +135,7 @@ const translations = {
         'form-name': 'Full Name',
         'form-email': 'Email',
         'form-phone': 'Phone Number',
-        'payment-btn': 'PRESALE - Start Subscription'
+        'payment-btn': 'Payment'
     }
 };
 
