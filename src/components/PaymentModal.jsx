@@ -66,21 +66,21 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
 
         // Name validation
         if (!data.name.trim()) {
-            newErrors.name = 'Nama lengkap wajib diisi';
+            newErrors.name = t('form-error-name-required');
         }
 
         // Email validation
         if (!data.email.trim()) {
-            newErrors.email = 'Email wajib diisi';
+            newErrors.email = t('form-error-email-required');
         } else if (!validateEmail(data.email)) {
-            newErrors.email = 'Format email tidak valid';
+            newErrors.email = t('form-error-email-invalid');
         }
 
         // Phone validation
         if (!data.phone.trim()) {
-            newErrors.phone = 'Nomor telepon wajib diisi';
+            newErrors.phone = t('form-error-phone-required');
         } else if (!validatePhone(data.phone)) {
-            newErrors.phone = 'Nomor telepon harus dimulai dengan 08 atau 62 dan minimal 10 digit';
+            newErrors.phone = t('form-error-phone-invalid');
         }
 
         return newErrors;
@@ -144,7 +144,7 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                         <i data-feather="credit-card"></i>
                     </div>
                     <h2>{t('payment-title')}</h2>
-                    <p className="modal-subtitle">Mulai perjalanan bisnis Anda dengan Sellaro</p>
+                    <p className="modal-subtitle">{t('payment-modal-subtitle')}</p>
                     <button 
                         className="modal-close"
                         onClick={() => setIsOpen(false)}
@@ -157,20 +157,20 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                 <div className="pricing-section">
                     <div className="price-display">
                         <span className="price-amount">Rp 368.000</span>
-                        <span className="price-period">/bulan</span>
+                        <span className="price-period">{t('price-period')}</span>
                     </div>
                     <div className="package-features">
                         <span className="feature-badge">
                             <i data-feather="check"></i>
-                            AI Complete Package
+                            {t('feature-ai-complete')}
                         </span>
                         <span className="feature-badge">
                             <i data-feather="check"></i>
-                            Dashboard Premium
+                            {t('feature-dashboard-premium')}
                         </span>
                         <span className="feature-badge">
                             <i data-feather="check"></i>
-                            Rp50k AI Credit
+                            {t('feature-ai-credit')}
                         </span>
                     </div>
                 </div>
@@ -238,7 +238,7 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
 
                 {/* Footer */}
                 <div className="modal-footer">
-                    <p>Dengan melanjutkan, Anda menyetujui <a href="#">Terms & Service</a> kami</p>
+                    <p>{t('modal-footer-terms')} <a href="#">{t('terms-service')}</a> {t('modal-footer-our')}</p>
                 </div>
 
                 <style jsx>{`

@@ -25,7 +25,7 @@ function Footer() {
                         </div>
                         
                         <div className="footer-contact">
-                            <h4 className="footer-title">Kontak</h4>
+                            <h4 className="footer-title">{t('footer-contact')}</h4>
                             <div className="contact-item">
                                 <i data-feather="mail"></i>
                                 <span>hello@sellaro.id</span>

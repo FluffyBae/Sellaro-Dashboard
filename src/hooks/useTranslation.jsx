@@ -69,7 +69,21 @@ const translations = {
         'form-phone': 'Nomor Telepon',
         'payment-btn': 'Pembayaran',
         'tutorial-text': 'Tutorial Penggunaan Tools AI',
-        'footer-description': 'Tingkatkan penjualan Shopee Anda dengan strategi AI yang cerdas dan solusi yang disesuaikan.'
+        'footer-description': 'Tingkatkan penjualan Shopee Anda dengan strategi AI yang cerdas dan solusi yang disesuaikan.',
+        'footer-contact': 'Kontak',
+        'payment-modal-subtitle': 'Mulai perjalanan bisnis Anda dengan Sellaro',
+        'price-period': '/bulan',
+        'feature-ai-complete': 'AI Complete Package',
+        'feature-dashboard-premium': 'Dashboard Premium',
+        'feature-ai-credit': 'Rp50k AI Credit',
+        'modal-footer-terms': 'Dengan melanjutkan, Anda menyetujui',
+        'terms-service': 'Terms & Service',
+        'modal-footer-our': 'kami',
+        'form-error-name-required': 'Nama lengkap wajib diisi',
+        'form-error-email-required': 'Email wajib diisi',
+        'form-error-email-invalid': 'Format email tidak valid',
+        'form-error-phone-required': 'Nomor telepon wajib diisi',
+        'form-error-phone-invalid': 'Nomor telepon harus dimulai dengan 08 atau 62 dan minimal 10 digit'
     },
     en: {
         'error-message': 'An unexpected error occurred. Please try again later.',
@@ -139,7 +153,21 @@ const translations = {
         'form-phone': 'Phone Number',
         'payment-btn': 'Payment',
         'tutorial-text': 'AI Tools Tutorial',
-        'footer-description': 'Boost your Shopee sales with smart AI strategies and customized solutions.'
+        'footer-description': 'Boost your Shopee sales with smart AI strategies and customized solutions.',
+        'footer-contact': 'Contact',
+        'payment-modal-subtitle': 'Start your business journey with Sellaro',
+        'price-period': '/month',
+        'feature-ai-complete': 'AI Complete Package',
+        'feature-dashboard-premium': 'Premium Dashboard',
+        'feature-ai-credit': 'Rp50k AI Credit',
+        'modal-footer-terms': 'By continuing, you agree to our',
+        'terms-service': 'Terms & Service',
+        'modal-footer-our': '',
+        'form-error-name-required': 'Full name is required',
+        'form-error-email-required': 'Email is required',
+        'form-error-email-invalid': 'Invalid email format',
+        'form-error-phone-required': 'Phone number is required',
+        'form-error-phone-invalid': 'Phone number must start with 08 or 62 and be at least 10 digits'
     }
 };
 
