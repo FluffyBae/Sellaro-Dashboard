@@ -63,13 +63,13 @@ function ChatWidget() {
         const lowerMessage = message.toLowerCase();
         
         if (lowerMessage.includes('layanan') || lowerMessage.includes('service')) {
-            return 'Kami menyediakan 6 layanan utama: Analisis Tampilan Toko, Re-Design Toko, Copywriting, Foto Produk, Rekomendasi Iklan, dan Optimasi UX Toko. Semua dirancang khusus untuk meningkatkan penjualan Shopee Anda.';
-        } else if (lowerMessage.includes('harga') || lowerMessage.includes('pricing') || lowerMessage.includes('biaya')) {
-            return 'Paket AI Complete kami tersedia dengan harga Rp 368.000/bulan. Paket ini sudah termasuk semua fitur AI dan Rp 50.000 AI Credit setiap bulannya.';
+            return t('bot-services-response');
+        } else if (lowerMessage.includes('harga') || lowerMessage.includes('pricing') || lowerMessage.includes('biaya') || lowerMessage.includes('price') || lowerMessage.includes('berapa')) {
+            return t('bot-pricing-response');
         } else if (lowerMessage.includes('kontak') || lowerMessage.includes('contact') || lowerMessage.includes('hubungi')) {
-            return 'Anda bisa menghubungi kami melalui email: hello@sellaro.id atau WhatsApp: +62 812-3456-7890. Tim kami siap membantu Anda 24/7!';
+            return t('bot-contact-response');
         } else {
-            return 'Terima kasih atas pertanyaan Anda! Tim AI kami akan segera memproses dan memberikan rekomendasi terbaik untuk bisnis Shopee Anda. Ada hal lain yang bisa saya bantu?';
+            return t('bot-default-response');
         }
     };
 
