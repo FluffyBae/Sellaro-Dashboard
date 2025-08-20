@@ -525,86 +525,97 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
 
                     @media (max-width: 768px) {
                         .payment-modal-overlay {
-                            padding: 10px;
-                            align-items: flex-start;
-                            padding-top: 20px;
+                            padding: 8px;
+                            align-items: center;
+                            justify-content: center;
                             overflow-y: auto;
                         }
 
                         .payment-modal {
                             margin: 0;
-                            max-width: 100%;
-                            max-height: calc(100vh - 40px);
+                            max-width: calc(100vw - 16px);
+                            max-height: calc(100vh - 16px);
+                            min-height: auto;
                             overflow-y: auto;
+                            display: flex;
+                            flex-direction: column;
                         }
                         
                         .modal-header {
-                            padding: 20px 20px 16px;
+                            padding: 16px 16px 12px;
+                            flex-shrink: 0;
                         }
 
                         .modal-icon {
-                            width: 48px;
-                            height: 48px;
-                            margin: 0 auto 12px;
+                            width: 40px;
+                            height: 40px;
+                            margin: 0 auto 8px;
                         }
 
                         .modal-icon i {
-                            width: 22px;
-                            height: 22px;
+                            width: 18px;
+                            height: 18px;
                         }
 
                         .modal-header h2 {
-                            font-size: 22px;
-                            margin: 0 0 6px 0;
+                            font-size: 20px;
+                            margin: 0 0 4px 0;
                         }
 
                         .modal-subtitle {
-                            font-size: 14px;
+                            font-size: 13px;
                         }
                         
                         .pricing-section {
-                            padding: 0 20px 16px;
+                            padding: 0 16px 12px;
+                            flex-shrink: 0;
                         }
 
                         .price-amount {
-                            font-size: 28px;
+                            font-size: 24px;
                         }
 
                         .price-period {
-                            font-size: 16px;
+                            font-size: 14px;
                         }
 
                         .package-features {
-                            gap: 6px;
+                            gap: 4px;
+                            margin-bottom: 12px;
                         }
 
                         .feature-badge {
-                            padding: 4px 8px;
-                            font-size: 12px;
+                            padding: 3px 6px;
+                            font-size: 11px;
                         }
                         
                         .payment-form {
-                            padding: 20px;
+                            padding: 16px;
+                            flex: 1;
+                            display: flex;
+                            flex-direction: column;
                         }
 
                         .form-row {
-                            margin-bottom: 16px;
+                            margin-bottom: 8px;
                         }
 
                         .form-group input {
-                            height: 48px;
+                            height: 44px;
                             font-size: 16px;
-                            padding: 0 16px;
+                            padding: 0 14px;
                         }
 
                         .payment-submit {
-                            height: 48px;
+                            height: 44px;
                             font-size: 15px;
-                            margin-top: 8px;
+                            margin-top: 4px;
+                            flex-shrink: 0;
                         }
                         
                         .modal-footer {
-                            padding: 0 20px 20px;
+                            padding: 8px 16px 12px;
+                            flex-shrink: 0;
                         }
 
                         .modal-footer p {
