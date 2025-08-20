@@ -607,13 +607,61 @@
     </div>
 
     <script>
-        // Initialize page with loading
-        document.addEventListener('DOMContentLoaded', function() {
+        // Initialize page with loading and API call
+        document.addEventListener('DOMContentLoaded', async function() {
             const loadingOverlay = document.getElementById('loadingOverlay');
             const successPage = document.getElementById('successPage');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
             
-            // After 2 seconds, hide loading and show content
+            // Get email from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const email = urlParams.get('email');
+            
+            if (!email) {
+                console.error('Email parameter not found in URL');
+                // Still show the page but with empty email
+                hideLoadingAndShowContent();
+                return;
+            }
+            
+            try {
+                // Set email in the input field
+                emailInput.value = email;
+                
+                // Fetch payment success data from API
+                const response = await fetch(`https://api.sellaro.id/payment-success?email=${encodeURIComponent(email)}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Update the UI with received data
+                if (data.password) {
+                    passwordInput.value = data.password;
+                }
+                
+                // Update dashboard login link if provided
+                if (data.dashboardUrl) {
+                    const loginBtn = document.querySelector('.login-btn');
+                    loginBtn.href = data.dashboardUrl;
+                }
+                
+                console.log('Payment success data loaded:', data);
+                
+            } catch (error) {
+                console.error('Error fetching payment success data:', error);
+                // Keep default values and show the page anyway
+            }
+            
+            // Hide loading and show content after API call (minimum 2 seconds)
             setTimeout(() => {
+                hideLoadingAndShowContent();
+            }, 2000);
+            
+            function hideLoadingAndShowContent() {
                 // Hide loading overlay
                 loadingOverlay.classList.add('fade-out');
                 
@@ -627,8 +675,7 @@
                 
                 // Initialize Feather icons after content is shown
                 feather.replace();
-                
-            }, 2000);
+            }
         });
 
         // Copy to clipboard function
@@ -663,9 +710,7 @@
 
         // Always use dark theme to match landing page
 
-        // Set customer email from localStorage
-        const customerEmail = localStorage.getItem('customerEmail') || 'customer@example.com';
-        document.getElementById('email').value = customerEmail;
+        // Note: Email is now set via URL parameter and API call above
 
         // Grand confetti celebration
         function createGrandConfettiBurst(burstNumber) {
