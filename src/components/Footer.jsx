@@ -20,7 +20,7 @@ function Footer() {
                         <div className="footer-brand">
                             <img src={LogoWhite} alt="Sellaro.id" className="footer-logo" />
                             <p className="footer-description">
-                                Tingkatkan penjualan Shopee Anda dengan strategi AI yang cerdas dan solusi yang disesuaikan.
+                                {t('footer-description')}
                             </p>
                         </div>
                         

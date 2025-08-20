@@ -68,7 +68,8 @@ const translations = {
         'form-email': 'Email',
         'form-phone': 'Nomor Telepon',
         'payment-btn': 'Pembayaran',
-        'tutorial-text': 'Tutorial Penggunaan Tools AI'
+        'tutorial-text': 'Tutorial Penggunaan Tools AI',
+        'footer-description': 'Tingkatkan penjualan Shopee Anda dengan strategi AI yang cerdas dan solusi yang disesuaikan.'
     },
     en: {
         'error-message': 'An unexpected error occurred. Please try again later.',
@@ -137,7 +138,8 @@ const translations = {
         'form-email': 'Email',
         'form-phone': 'Phone Number',
         'payment-btn': 'Payment',
-        'tutorial-text': 'AI Tools Tutorial'
+        'tutorial-text': 'AI Tools Tutorial',
+        'footer-description': 'Boost your Shopee sales with smart AI strategies and customized solutions.'
     }
 };
 
