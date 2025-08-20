@@ -553,6 +553,14 @@ body::before {
     justify-content: center;
     align-items: center;
     animation: slideInRight 0.8s ease-out 0.4s both;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .hero-visual {
+        order: -1; /* Show visual before text on mobile */
+        margin-bottom: var(--spacing-lg);
+    }
 }
 
 .hero-card {
@@ -563,6 +571,29 @@ body::before {
     transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
     transition: transform var(--transition-slow);
     animation: float 6s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .hero-card {
+        max-width: 100%;
+        padding: var(--spacing-sm);
+        transform: perspective(800px) rotateY(-2deg) rotateX(2deg);
+    }
+    
+    .hero-card:hover {
+        transform: perspective(800px) rotateY(0deg) rotateX(0deg) scale(1.01);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-card {
+        padding: var(--spacing-xs);
+        transform: none; /* Remove 3D transforms on very small screens */
+    }
+    
+    .hero-card:hover {
+        transform: scale(1.01);
+    }
 }
 
 .hero-card:hover {
@@ -609,6 +640,23 @@ body::before {
     border-radius: var(--radius-md);
     filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
     transition: filter var(--transition-normal);
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .card-content img {
+        border-radius: var(--radius-sm);
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+    }
+}
+
+@media (max-width: 480px) {
+    .card-content img {
+        border-radius: 8px;
+    }
 }
 
 .hero-card:hover .card-content img {
@@ -655,6 +703,28 @@ body::before {
     }
     50% {
         transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) translateY(-10px);
+    }
+}
+
+@media (max-width: 768px) {
+    @keyframes float {
+        0%, 100% {
+            transform: perspective(800px) rotateY(-2deg) rotateX(2deg) translateY(0px);
+        }
+        50% {
+            transform: perspective(800px) rotateY(-2deg) rotateX(2deg) translateY(-5px);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
     }
 }
 
