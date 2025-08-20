@@ -76,7 +76,7 @@ function Packages() {
                 </h2>
                 <div className="package-container">
                     <div className="package-card featured glass-card">
-                        <div className="package-badge">FEATURED</div>
+                        <div className="package-badge">PRESALE</div>
                         <div className="package-header">
                             <h3 className="package-title">{t('package-title')}</h3>
                             <div className="package-price">
