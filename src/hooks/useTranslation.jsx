@@ -142,7 +142,11 @@ const translations = {
 const TranslationContext = createContext();
 
 export function TranslationProvider({ children }) {
-    const [language, setLanguage] = useState('id');
+    const [language, setLanguage] = useState(() => {
+        // Check localStorage for saved language preference
+        const savedLanguage = localStorage.getItem('language');
+        return savedLanguage || 'id';
+    });
 
     const t = (key) => {
         return translations[language][key] || key;
@@ -151,6 +155,18 @@ export function TranslationProvider({ children }) {
     const switchLanguage = (lang) => {
         setLanguage(lang);
         document.documentElement.lang = lang;
+        // Save language preference to localStorage
+        localStorage.setItem('language', lang);
+        
+        // Update meta description based on language
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            if (lang === 'en') {
+                metaDesc.content = 'Boost your Shopee sales effortlessly with AI strategies, store optimization, and comprehensive e-commerce solutions tailored for Indonesian market.';
+            } else {
+                metaDesc.content = 'Tingkatkan penjualan Shopee Anda dengan mudah. Layanan optimasi toko online, strategi AI, dan solusi yang disesuaikan untuk kesuksesan e-commerce Anda.';
+            }
+        }
     };
 
     return (
@@ -169,5 +185,8 @@ export function useTranslation() {
     if (!context) {
         throw new Error('useTranslation must be used within a TranslationProvider');
     }
-    return context;
+    return {
+        ...context,
+        theme: 'dark' // Always return dark theme to match the design
+    };
 }
