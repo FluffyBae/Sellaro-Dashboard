@@ -7,7 +7,8 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        phone: ''
+        phone: '',
+        presale: 'PRESALE'
     });
     const [errors, setErrors] = useState({
         name: '',
@@ -129,7 +130,7 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
         onPaymentClick(formData);
         
         // Reset form and close modal
-        setFormData({ name: '', email: '', phone: '' });
+        setFormData({ name: '', email: '', phone: '', presale: 'PRESALE' });
         setIsOpen(false);
     };
 
@@ -177,6 +178,12 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
 
                 {/* Form Section */}
                 <form className="payment-form" onSubmit={handleSubmit}>
+                    {/* Hidden field for PRESALE */}
+                    <input
+                        type="hidden"
+                        name="presale"
+                        value={formData.presale}
+                    />
                     <div className="form-row">
                         <div className="form-group">
                             <input
