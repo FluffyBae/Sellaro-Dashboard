@@ -1246,6 +1246,30 @@ p {
     
     .hero-buttons {
         gap: var(--spacing-sm);
+        margin-top: var(--spacing-lg);
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        z-index: 10;
+    }
+    
+    .hero-text {
+        position: relative;
+        z-index: 5;
+    }
+    
+    .btn,
+    .btn-primary,
+    .btn-youtube {
+        display: inline-flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative;
+        z-index: 15;
+        min-height: 48px;
+        font-size: var(--font-size-base);
     }
 }
 
@@ -1257,6 +1281,37 @@ p {
     
     .hero-buttons {
         gap: var(--spacing-xs);
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: var(--spacing-lg);
+        position: relative;
+        z-index: 20;
+    }
+    
+    .btn,
+    .btn-primary,
+    .btn-youtube {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+        min-height: 52px;
+        font-size: var(--font-size-base);
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .hero-content {
+        padding: 0 var(--spacing-md);
+        gap: var(--spacing-lg);
+        overflow: visible;
+    }
+    
+    .hero {
+        min-height: auto;
+        padding: 120px 0 var(--spacing-3xl) 0;
+        overflow: visible;
     }
 }
 
