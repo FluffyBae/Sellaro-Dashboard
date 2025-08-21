@@ -7,7 +7,8 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        phone: ''
+        phone: '',
+        referralCode: ''
     });
     const [errors, setErrors] = useState({
         name: '',
@@ -61,6 +62,12 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
         return phoneRegex.test(cleanPhone) && cleanPhone.length >= 10;
     };
 
+    const validateReferralCode = (code) => {
+        // Check if code contains only alphanumeric characters and is max 5 characters
+        const referralRegex = /^[A-Za-z0-9]{0,5}$/;
+        return referralRegex.test(code);
+    };
+
     const validateForm = (data) => {
         const newErrors = {};
 
@@ -88,9 +95,17 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+        
+        // Handle referral code input with specific formatting
+        let newValue = value;
+        if (name === 'referralCode') {
+            // Only allow alphanumeric characters and limit to 5 characters
+            newValue = value.replace(/[^A-Za-z0-9]/g, '').toUpperCase().substring(0, 5);
+        }
+        
         const newFormData = {
             ...formData,
-            [name]: value
+            [name]: newValue
         };
         
         setFormData(newFormData);
@@ -222,6 +237,23 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                                 required
                             />
                             {errors.phone && <span className="error-message">{errors.phone}</span>}
+                        </div>
+                    </div>
+
+                    {/* Referral Code Field */}
+                    <div className="form-row">
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                id="referralCode"
+                                name="referralCode"
+                                placeholder={t('form-referral-code')}
+                                value={formData.referralCode}
+                                onChange={handleInputChange}
+                                maxLength="5"
+                                style={{ textTransform: 'uppercase' }}
+                            />
+                            <div className="form-helper">{t('form-referral-helper')}</div>
                         </div>
                     </div>
 
@@ -625,6 +657,13 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                         .error-message {
                             font-size: 12px;
                             margin-top: 6px;
+                        }
+
+                        .form-helper {
+                            font-size: 11px;
+                            color: rgba(255, 255, 255, 0.5);
+                            margin-top: 4px;
+                            font-style: italic;
                         }
                     }
                 `}</style>

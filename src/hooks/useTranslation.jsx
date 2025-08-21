@@ -87,7 +87,9 @@ const translations = {
         'bot-services-response': 'Kami menyediakan 6 layanan utama: Analisis Tampilan Toko, Re-Design Toko, Copywriting, Foto Produk, Rekomendasi Iklan, dan Optimasi UX Toko. Semua dirancang khusus untuk meningkatkan penjualan Shopee Anda.',
         'bot-pricing-response': 'Paket AI Complete kami tersedia dengan harga Rp. 368.000/bulan. Paket ini sudah termasuk semua fitur AI dan Rp 50.000 AI Credit setiap bulannya.',
         'bot-contact-response': 'Anda bisa menghubungi kami melalui email: hello@sellaro.id atau WhatsApp: +62 812-3456-7890. Tim kami siap membantu Anda 24/7!',
-        'bot-default-response': 'Terima kasih atas pertanyaan Anda! Tim AI kami akan segera memproses dan memberikan rekomendasi terbaik untuk bisnis Shopee Anda. Ada hal lain yang bisa saya bantu?'
+        'bot-default-response': 'Terima kasih atas pertanyaan Anda! Tim AI kami akan segera memproses dan memberikan rekomendasi terbaik untuk bisnis Shopee Anda. Ada hal lain yang bisa saya bantu?',
+        'form-referral-code': 'Kode Referral (Opsional)',
+        'form-referral-helper': 'Maksimal 5 karakter, huruf dan angka saja'
     },
     en: {
         'error-message': 'An unexpected error occurred. Please try again later.',
@@ -175,7 +177,9 @@ const translations = {
         'bot-services-response': 'We provide 6 main services: Store Display Analysis, Store Re-Design, Copywriting, Product Photography, Advertising Recommendations, and Store UX Optimization. All designed to boost your Shopee sales.',
         'bot-pricing-response': 'Our AI Complete Package is available for Rp. 368.000/month. This package includes all AI features and Rp 50.000 AI Credit per month.',
         'bot-contact-response': 'You can contact us via email: hello@sellaro.id or WhatsApp: +62 812-3456-7890. Our team is ready to help you 24/7!',
-        'bot-default-response': 'Thank you for your question! Our AI team will process it soon and provide the best recommendations for your Shopee business. Is there anything else I can help you with?'
+        'bot-default-response': 'Thank you for your question! Our AI team will process it soon and provide the best recommendations for your Shopee business. Is there anything else I can help you with?',
+        'form-referral-code': 'Referral Code (Optional)',
+        'form-referral-helper': 'Maximum 5 characters, letters and numbers only'
     }
 };
 
