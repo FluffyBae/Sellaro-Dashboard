@@ -42,7 +42,7 @@ const translations = {
         'feature-ads-desc': 'Rekomendasi dan pengelolaan iklan otomatis agar lebih efektif & hemat biaya.',
         'feature-dashboard-title': 'Smart Dashboard',
         'feature-dashboard-desc': 'Pantau performa toko Shopee Anda dalam satu dashboard yang rapi & mudah dipahami.',
-        'feature-credit-title': 'Rp50.000 AI Credit / bulan',
+        'feature-credit-title': '50.000 Sellaro AI Credit / bulan',
         'feature-credit-desc': 'Bisa dipakai untuk tambahan fitur premium AI sesuai kebutuhan Anda.',
         'package-cta': 'Mulai Sekarang',
         'nav-home': 'Home',
@@ -108,7 +108,7 @@ const translations = {
         'feature-ads-desc': 'Automatic ad recommendations and management for more effective & cost-efficient results.',
         'feature-dashboard-title': 'Smart Dashboard',
         'feature-dashboard-desc': 'Monitor your Shopee store performance in one neat & easy-to-understand dashboard.',
-        'feature-credit-title': 'Rp50,000 AI Credit / month',
+        'feature-credit-title': '50,000 Sellaro AI Credit / month',
         'feature-credit-desc': 'Can be used for additional premium AI features according to your needs.',
         'package-cta': 'Get Started',
         'nav-home': 'Home',
@@ -141,14 +141,14 @@ let currentLang = 'id';
 const chatResponses = {
     id: {
         services: "Kami menyediakan 6 layanan utama:\n\n🔍 Analisis Tampilan Toko\n🎨 Re-Design Toko\n✍️ Copywriting\n📷 Foto Product\n🎯 Rekomendasi Iklan\n📱 Optimasi UX Toko\n\nLayanan mana yang paling Anda butuhkan?",
-        pricing: "Kami menawarkan Paket AI Complete dengan harga Rp 1.200.000/bulan yang mencakup:\n\n🎨 AI Image Creator\n🔍 AI SEO Optimizer\n📈 AI Ads Manager\n📊 Smart Dashboard\n💳 Rp50.000 AI Credit/bulan\n\nHubungi kami untuk konsultasi gratis! 📞",
-        contact: "Anda bisa menghubungi tim kami melalui:\n\n📧 Email: contact@diserbu.id\n📱 WhatsApp: +62 812-3456-7890\n⏰ Jam kerja: Senin-Jumat 09:00-17:00\n\nAtau klik tombol 'Mulai Sekarang' di halaman ini untuk konsultasi langsung!",
+        pricing: "Kami menawarkan Paket AI Complete dengan harga Rp 1.200.000/bulan yang mencakup:\n\n🎨 AI Image Creator\n🔍 AI SEO Optimizer\n📈 AI Ads Manager\n📊 Smart Dashboard\n💳 50.000 Sellaro AI Credit/bulan\n\nHubungi kami untuk konsultasi gratis! 📞",
+        contact: "Anda bisa menghubungi tim kami melalui:\n\n📧 Email: contact@diserbu.id\n📱 WhatsApp: +62 888-1836-142\n⏰ Jam kerja: Senin-Jumat 09:00-17:00\n\nAtau klik tombol 'Mulai Sekarang' di halaman ini untuk konsultasi langsung!",
         default: "Terima kasih atas pertanyaannya! Untuk informasi lebih detail, silakan hubungi tim support kami di contact@diserbu.id atau gunakan tombol quick reply di bawah untuk pertanyaan umum. 😊"
     },
     en: {
         services: "We provide 6 main services:\n\n🔍 Store Display Analysis\n🎨 Store Re-Design\n✍️ Copywriting\n📷 Product Photography\n🎯 Advertising Recommendations\n📱 Store UX Optimization\n\nWhich service do you need most?",
-        pricing: "We offer AI Complete Package for Rp 350,000/month which includes:\n\n🎨 AI Image Creator\n🔍 AI SEO Optimizer\n📈 AI Ads Manager\n📊 Smart Dashboard\n💳 Rp50,000 AI Credit/month\n\nContact us for a free consultation! 📞",
-        contact: "You can contact our team via:\n\n📧 Email: contact@diserbu.id\n📱 WhatsApp: +62 812-3456-7890\n⏰ Business hours: Monday-Friday 09:00-17:00\n\nOr click the 'Get Started' button on this page for direct consultation!",
+        pricing: "We offer AI Complete Package for Rp 1,200,000/month which includes:\n\n🎨 AI Image Creator\n🔍 AI SEO Optimizer\n📈 AI Ads Manager\n📊 Smart Dashboard\n💳 50,000 Sellaro AI Credit/month\n\nContact us for a free consultation! 📞",
+        contact: "You can contact our team via:\n\n📧 Email: contact@diserbu.id\n📱 WhatsApp: +62 888-1836-142\n⏰ Business hours: Monday-Friday 09:00-17:00\n\nOr click the 'Get Started' button on this page for direct consultation!",
         default: "Thank you for your question! For more detailed information, please contact our support team at contact@diserbu.id or use the quick reply buttons below for common questions. 😊"
     }
 };

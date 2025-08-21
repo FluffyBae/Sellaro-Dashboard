@@ -28,12 +28,12 @@ function Footer() {
                             <h4 className="footer-title">{t('footer-contact')}</h4>
                             <div className="contact-item">
                                 <i data-feather="mail"></i>
-                                <span>hello@sellaro.id</span>
+                                <span>contact@sellaro.id</span>
                             </div>
-                            {/*<div className="contact-item">*/}
-                            {/*    <i data-feather="phone"></i>*/}
-                            {/*    <span>+62 812-3456-7890</span>*/}
-                            {/*</div>*/}
+                            <div className="contact-item">
+                                <i data-feather="phone"></i>
+                                <span>+62 888-1836-142</span>
+                            </div>
                             <div className="contact-item">
                                 <i data-feather="map-pin"></i>
                                 <span>Jakarta, Indonesia</span>

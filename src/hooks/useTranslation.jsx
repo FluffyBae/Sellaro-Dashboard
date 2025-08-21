@@ -45,7 +45,7 @@ const translations = {
         'feature-ads-desc': 'Rekomendasi dan pengelolaan iklan otomatis agar lebih efektif & hemat biaya.',
         'feature-dashboard-title': 'Smart Dashboard',
         'feature-dashboard-desc': 'Pantau performa toko Shopee Anda dalam satu dashboard yang rapi & mudah dipahami.',
-        'feature-credit-title': 'Rp50.000 AI Credit / bulan',
+        'feature-credit-title': '50.000 Sellaro AI Credit / bulan',
         'feature-credit-desc': 'Bisa dipakai untuk tambahan fitur premium AI sesuai kebutuhan Anda.',
         'package-cta': 'Mulai Sekarang',
         'nav-home': 'Home',
@@ -75,7 +75,7 @@ const translations = {
         'price-period': '/bulan',
         'feature-ai-complete': 'AI Complete Package',
         'feature-dashboard-premium': 'Dashboard Premium',
-        'feature-ai-credit': 'Rp50k AI Credit',
+        'feature-ai-credit': '50k Sellaro AI Credit',
         'modal-footer-terms': 'Dengan melanjutkan, Anda menyetujui',
         'terms-service': 'Terms & Service',
         'modal-footer-our': 'kami',
@@ -85,8 +85,8 @@ const translations = {
         'form-error-phone-required': 'Nomor telepon wajib diisi',
         'form-error-phone-invalid': 'Nomor telepon harus dimulai dengan 08 atau 62 dan minimal 10 digit',
         'bot-services-response': 'Kami menyediakan 6 layanan utama: Analisis Tampilan Toko, Re-Design Toko, Copywriting, Foto Produk, Rekomendasi Iklan, dan Optimasi UX Toko. Semua dirancang khusus untuk meningkatkan penjualan Shopee Anda.',
-        'bot-pricing-response': 'Paket AI Complete kami tersedia dengan harga Rp. 368.000/bulan. Paket ini sudah termasuk semua fitur AI dan Rp 50.000 AI Credit setiap bulannya.',
-        'bot-contact-response': 'Anda bisa menghubungi kami melalui email: hello@sellaro.id atau WhatsApp: +62 812-3456-7890. Tim kami siap membantu Anda 24/7!',
+        'bot-pricing-response': 'Paket AI Complete kami tersedia dengan harga Rp. 1.200.000/bulan. Paket ini sudah termasuk semua fitur AI dan 50.000 Sellaro AI Credit setiap bulannya.',
+        'bot-contact-response': 'Anda bisa menghubungi kami melalui email: contact@sellaro.id atau WhatsApp: +62 888-1836-142. Tim kami siap membantu Anda 24/7!',
         'bot-default-response': 'Terima kasih atas pertanyaan Anda! Tim AI kami akan segera memproses dan memberikan rekomendasi terbaik untuk bisnis Shopee Anda. Ada hal lain yang bisa saya bantu?'
     },
     en: {
@@ -133,7 +133,7 @@ const translations = {
         'feature-ads-desc': 'Automatic ad recommendations and management for more effective & cost-efficient results.',
         'feature-dashboard-title': 'Smart Dashboard',
         'feature-dashboard-desc': 'Monitor your Shopee store performance in one neat & easy-to-understand dashboard.',
-        'feature-credit-title': 'Rp50,000 AI Credit / month',
+        'feature-credit-title': '50,000 Sellaro AI Credit / month',
         'feature-credit-desc': 'Can be used for additional premium AI features according to your needs.',
         'package-cta': 'Get Started',
         'nav-home': 'Home',
@@ -163,7 +163,7 @@ const translations = {
         'price-period': '/month',
         'feature-ai-complete': 'AI Complete Package',
         'feature-dashboard-premium': 'Premium Dashboard',
-        'feature-ai-credit': 'Rp50k AI Credit',
+        'feature-ai-credit': '50k Sellaro AI Credit',
         'modal-footer-terms': 'By continuing, you agree to our',
         'terms-service': 'Terms & Service',
         'modal-footer-our': '',
@@ -173,8 +173,8 @@ const translations = {
         'form-error-phone-required': 'Phone number is required',
         'form-error-phone-invalid': 'Phone number must start with 08 or 62 and be at least 10 digits',
         'bot-services-response': 'We provide 6 main services: Store Display Analysis, Store Re-Design, Copywriting, Product Photography, Advertising Recommendations, and Store UX Optimization. All designed to boost your Shopee sales.',
-        'bot-pricing-response': 'Our AI Complete Package is available for Rp. 368.000/month. This package includes all AI features and Rp 50.000 AI Credit per month.',
-        'bot-contact-response': 'You can contact us via email: hello@sellaro.id or WhatsApp: +62 812-3456-7890. Our team is ready to help you 24/7!',
+        'bot-pricing-response': 'Our AI Complete Package is available for Rp. 1.200.000/month. This package includes all AI features and Rp 50.000 AI Credit per month.',
+        'bot-contact-response': 'You can contact us via email: contact@sellaro.id or WhatsApp: +62 888-1836-142. Our team is ready to help you 24/7!',
         'bot-default-response': 'Thank you for your question! Our AI team will process it soon and provide the best recommendations for your Shopee business. Is there anything else I can help you with?'
     }
 };
