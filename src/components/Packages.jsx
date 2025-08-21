@@ -80,7 +80,7 @@ function Packages() {
                         <div className="package-header">
                             <h3 className="package-title">{t('package-title')}</h3>
                             <div className="package-price">
-                                <span className="price-amount">Rp 1.000.000</span>
+                                <span className="price-amount">Rp 1.200.000</span>
                                 <span className="price-period">{t('package-period')}</span>
                             </div>
                         </div>
