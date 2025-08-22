@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from 'react';
 
 const translations = {
     id: {
+        'lang': 'id',
         'error-message': 'Terjadi kesalahan tak terduga. Silakan coba lagi nanti.',
         'error-title': 'Terjadi Kesalahan',
         'hero-title': 'Tingkatkan Penjualan Shopee, Tanpa Ribet',
@@ -90,6 +91,7 @@ const translations = {
         'bot-default-response': 'Terima kasih atas pertanyaan Anda! Tim AI kami akan segera memproses dan memberikan rekomendasi terbaik untuk bisnis Shopee Anda. Ada hal lain yang bisa saya bantu?'
     },
     en: {
+        'lang': 'en',
         'error-message': 'An unexpected error occurred. Please try again later.',
         'error-title': 'An Error Occurred',
         'hero-title': 'Boost Your Shopee Sales, Effortlessly',

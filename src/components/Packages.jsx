@@ -80,15 +80,16 @@ function Packages() {
                     name: formData.name,
                     email: formData.email,
                     phone: formData.phone,
+                    lang: t('lang')
                 })
             });
             data = await response.json();
-            // window.location.href = data.data.link;
+            window.location.href = data.data.link;
         } catch (error) {
             setErrorModal(true);
             setErrorMessage(data.message)
         }
-        console.log(data)
+        // console.log(data)
     }
 
     return (
