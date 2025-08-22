@@ -243,7 +243,7 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                     </div>
 
                     {/* Referral Code Field */}
-                    {/* <div className="form-row">
+                    <div className="form-row">
                         <div className="form-group">
                             <input
                                 type="text"
@@ -256,7 +256,7 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                             />
                             <div className="form-helper">{t('form-referral-helper')}</div>
                         </div>
-                    </div> */}
+                    </div>
 
                     <button 
                         disabled={isDisabled} 
