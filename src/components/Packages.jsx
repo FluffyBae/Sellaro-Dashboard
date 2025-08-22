@@ -42,30 +42,49 @@ function Packages() {
         }
     ];
 
+    // const handlePaymentSubmission = async formData => {
+    //     const res = await fetch('https://api.sellaro.id/make-payment', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+    //             name: formData.name,
+    //             email: formData.email,
+    //             phone: formData.phone,
+    //         })
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         // if (data.statusCode === 200) {
+    //         window.location.href = data.data.link;
+    //         // }
+    //         // else {
+    //         //     setErrorModal(true);
+    //         // }
+    //     })
+    //     .catch(error => {
+    //         setErrorModal(true);
+    //     });
+    // }
     const handlePaymentSubmission = async formData => {
-        const res = await fetch('https://api.sellaro.id/make-payment', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: formData.name,
-                email: formData.email,
-                phone: formData.phone,
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            // if (data.statusCode === 200) {
+        try {
+            const response = await fetch('https://api.sellaro.id/make-payment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                })
+            });
+            const data = await response.json();
             window.location.href = data.data.link;
-            // }
-            // else {
-            //     setErrorModal(true);
-            // }
-        })
-        .catch(error => {
+        } catch (error) {
             setErrorModal(true);
-        });
+        }
     }
 
     return (
