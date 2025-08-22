@@ -7,6 +7,7 @@ function Packages() {
     const { t } = useTranslation();
     const [showPayment, setShowPayment] = useState(false);
     const [errorModal, setErrorModal] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         if (window.feather) {
@@ -68,6 +69,7 @@ function Packages() {
     //     });
     // }
     const handlePaymentSubmission = async formData => {
+        let data
         try {
             const response = await fetch('https://api.sellaro.id/make-payment', {
                 method: 'POST',
@@ -80,11 +82,13 @@ function Packages() {
                     phone: formData.phone,
                 })
             });
-            const data = await response.json();
-            window.location.href = data.data.link;
+            data = await response.json();
+            // window.location.href = data.data.link;
         } catch (error) {
             setErrorModal(true);
+            setErrorMessage(data.message)
         }
+        console.log(data)
     }
 
     return (
@@ -130,7 +134,7 @@ function Packages() {
             </div>
 
             <PaymentModal isOpen={showPayment} setIsOpen={setShowPayment} onPaymentClick={handlePaymentSubmission} />
-            <ErrorModal isOpen={errorModal} setIsOpen={setErrorModal} />
+            <ErrorModal isOpen={errorModal} setIsOpen={setErrorModal} errorMessage={errorMessage} />
         </section>
     );
 }

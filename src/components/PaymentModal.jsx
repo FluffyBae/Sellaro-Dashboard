@@ -227,7 +227,7 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
 
                     <button 
                         disabled={isDisabled} 
-                        onClick={() => onPaymentClick(formData)} 
+                        // onClick={() => onPaymentClick(formData)}
                         type="submit" 
                         className="payment-submit"
                     >
