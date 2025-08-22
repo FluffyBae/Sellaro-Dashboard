@@ -173,7 +173,7 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                 {/* Pricing Display */}
                 <div className="pricing-section">
                     <div className="price-display">
-                        <span className="price-amount">Rp 368.000</span>
+                        <span className="price-amount">Rp 1.200.000</span>
                         <span className="price-period">{t('price-period')}</span>
                     </div>
                     <div className="package-features">
@@ -243,7 +243,7 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                     </div>
 
                     {/* Referral Code Field */}
-                    <div className="form-row">
+                    {/* <div className="form-row">
                         <div className="form-group">
                             <input
                                 type="text"
@@ -256,11 +256,11 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                             />
                             <div className="form-helper">{t('form-referral-helper')}</div>
                         </div>
-                    </div>
+                    </div> */}
 
                     <button 
                         disabled={isDisabled} 
-                        onClick={() => onPaymentClick(formData)} 
+                        // onClick={() => onPaymentClick(formData)}
                         type="submit" 
                         className="payment-submit"
                     >

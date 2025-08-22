@@ -7,6 +7,7 @@ function Packages() {
     const { t } = useTranslation();
     const [showPayment, setShowPayment] = useState(false);
     const [errorModal, setErrorModal] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         if (window.feather) {
@@ -42,30 +43,53 @@ function Packages() {
         }
     ];
 
+    // const handlePaymentSubmission = async formData => {
+    //     const res = await fetch('https://api.sellaro.id/make-payment', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+    //             name: formData.name,
+    //             email: formData.email,
+    //             phone: formData.phone,
+    //         })
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         // if (data.statusCode === 200) {
+    //         window.location.href = data.data.link;
+    //         // }
+    //         // else {
+    //         //     setErrorModal(true);
+    //         // }
+    //     })
+    //     .catch(error => {
+    //         setErrorModal(true);
+    //     });
+    // }
     const handlePaymentSubmission = async formData => {
-        const res = await fetch('https://api.sellaro.id/make-payment', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: formData.name,
-                email: formData.email,
-                phone: formData.phone,
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            // if (data.statusCode === 200) {
+        let data
+        try {
+            const response = await fetch('https://api.sellaro.id/make-payment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    lang: t('lang')
+                })
+            });
+            data = await response.json();
             window.location.href = data.data.link;
-            // }
-            // else {
-            //     setErrorModal(true);
-            // }
-        })
-        .catch(error => {
+        } catch (error) {
             setErrorModal(true);
-        });
+            setErrorMessage(data.message)
+        }
+        // console.log(data)
     }
 
     return (
@@ -80,7 +104,7 @@ function Packages() {
                         <div className="package-header">
                             <h3 className="package-title">{t('package-title')}</h3>
                             <div className="package-price">
-                                <span className="price-amount">Rp 368.000</span>
+                                <span className="price-amount">Rp 1.200.000</span>
                                 <span className="price-period">{t('package-period')}</span>
                             </div>
                         </div>
@@ -111,7 +135,7 @@ function Packages() {
             </div>
 
             <PaymentModal isOpen={showPayment} setIsOpen={setShowPayment} onPaymentClick={handlePaymentSubmission} />
-            <ErrorModal isOpen={errorModal} setIsOpen={setErrorModal} />
+            <ErrorModal isOpen={errorModal} setIsOpen={setErrorModal} errorMessage={errorMessage} />
         </section>
     );
 }

@@ -24,39 +24,33 @@ function Footer() {
                             </p>
                         </div>
                         
-                        <div className="footer-contact">
+                        {/* <div className="footer-contact">
                             <h4 className="footer-title">{t('footer-contact')}</h4>
                             <div className="contact-item">
                                 <i data-feather="mail"></i>
-                                <span>hello@sellaro.id</span>
+                                <span>contact@sellaro.id</span>
                             </div>
-                            {/*<div className="contact-item">*/}
-                            {/*    <i data-feather="phone"></i>*/}
-                            {/*    <span>+62 812-3456-7890</span>*/}
-                            {/*</div>*/}
+                            <div className="contact-item">
+                                <i data-feather="phone"></i>
+                                <span>+62 888-1836-142</span>
+                            </div>
                             <div className="contact-item">
                                 <i data-feather="map-pin"></i>
                                 <span>Jakarta, Indonesia</span>
                             </div>
-                        </div>
+                        </div> */}
                         
-                        {/*<div className="footer-social">*/}
-                        {/*    <h4 className="footer-title">Ikuti Kami</h4>*/}
-                        {/*    <div className="social-links">*/}
-                        {/*        <a href="#" className="social-link">*/}
-                        {/*            <i data-feather="instagram"></i>*/}
-                        {/*        </a>*/}
-                        {/*        <a href="#" className="social-link">*/}
-                        {/*            <i data-feather="twitter"></i>*/}
-                        {/*        </a>*/}
-                        {/*        <a href="#" className="social-link">*/}
-                        {/*            <i data-feather="linkedin"></i>*/}
-                        {/*        </a>*/}
-                        {/*        <a href="#" className="social-link">*/}
-                        {/*            <i data-feather="youtube"></i>*/}
-                        {/*        </a>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
+                        <div className="footer-social">
+                            <h4 className="footer-title">Ikuti Kami</h4>
+                            <div className="social-links">
+                                <a href="https://www.instagram.com/sellaro.id/profilecard/?igsh=M3l6c29ob3NicGFj" target="_blank" className="social-link">
+                                    <i data-feather="instagram"></i>
+                                </a>
+                                <a href="https://youtu.be/HNMPATOZBlw" target="_blank" className="social-link">
+                                    <i data-feather="youtube"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     
                     <div className="footer-bottom">
@@ -154,7 +148,7 @@ function Footer() {
                 }
 
                 .social-link:hover {
-                    background: var(--primary-color);
+                    /* background: var(--primary-color); */
                     border-color: var(--primary-color);
                     transform: translateY(-2px);
                 }
