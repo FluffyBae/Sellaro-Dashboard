@@ -62,10 +62,11 @@ function ChatWidget() {
     const getBotResponse = (message) => {
         const lowerMessage = message.toLowerCase();
         
-        if (lowerMessage.includes('layanan') || lowerMessage.includes('service')) {
-            return t('bot-services-response');
-        } else if (lowerMessage.includes('harga') || lowerMessage.includes('pricing') || lowerMessage.includes('biaya') || lowerMessage.includes('price') || lowerMessage.includes('berapa')) {
+        // Check for pricing keywords first (more specific)
+        if (lowerMessage.includes('harga') || lowerMessage.includes('pricing') || lowerMessage.includes('biaya') || lowerMessage.includes('price') || lowerMessage.includes('berapa harga') || lowerMessage.includes('layanannya')) {
             return t('bot-pricing-response');
+        } else if (lowerMessage.includes('layanan') || lowerMessage.includes('service')) {
+            return t('bot-services-response');
         } else if (lowerMessage.includes('kontak') || lowerMessage.includes('contact') || lowerMessage.includes('hubungi')) {
             return t('bot-contact-response');
         } else {
