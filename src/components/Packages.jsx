@@ -71,7 +71,7 @@ function Packages() {
     const handlePaymentSubmission = async formData => {
         let data
         try {
-            const response = await fetch('https://api.sellaro.id/make-payment', {
+            const response = await fetch('https://test-api.sellaro.id/make-payment', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
