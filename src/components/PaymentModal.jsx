@@ -102,7 +102,7 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
             // Only allow alphanumeric characters and limit to 5 characters
             const cleanValue = value.replace(/[^A-Za-z0-9]/g, '').substring(0, 5);
             // Make first letter uppercase, rest lowercase
-            newValue = cleanValue.charAt(0).toUpperCase() + cleanValue.slice(1).toLowerCase();
+            // newValue = cleanValue.charAt(0).toUpperCase() + cleanValue.slice(1).toLowerCase();
         }
         
         const newFormData = {
@@ -252,7 +252,6 @@ function PaymentModal({ isOpen, setIsOpen, onPaymentClick }) {
                                 placeholder={t('form-referral-code')}
                                 value={formData.referralCode}
                                 onChange={handleInputChange}
-                                maxLength="5"
                             />
                             <div className="form-helper">{t('form-referral-helper')}</div>
                         </div>
