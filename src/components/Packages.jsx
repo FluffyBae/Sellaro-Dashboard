@@ -80,6 +80,7 @@ function Packages() {
                     name: formData.name,
                     email: formData.email,
                     phone: formData.phone,
+                    referal_code: formData.referralCode,
                     lang: t('lang')
                 })
             });
