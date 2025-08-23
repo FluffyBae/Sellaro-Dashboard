@@ -1,8 +1,8 @@
 services:
-  sellaro-landing:
+  test-sellaro-landing:
     build: .
     ports:
-      - "80:5011"
+      - "8079:5011"
     restart: unless-stopped
     networks:
       - app-network
@@ -10,4 +10,4 @@ services:
 networks:
   app-network:
     external: true
-    name: production-app-network
+    name: testing-app-network
